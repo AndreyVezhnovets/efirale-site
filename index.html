@@ -1,47 +1,121 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>efirale</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>efirale — натуральные ароматы</title>
   <style>
     body {
       font-family: sans-serif;
+      background-color: #fafafa;
+      color: #333;
       margin: 0;
       padding: 0;
-      background: #fafafa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
     }
 
-    header {
+    header, footer {
+      background-color: #fff;
+      padding: 2rem;
+      text-align: center;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    h1 {
+      margin: 0;
       font-size: 2rem;
-      margin-bottom: 1rem;
     }
 
     section {
-      max-width: 600px;
-      padding: 1rem;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h2 {
+      margin-top: 3rem;
+      font-size: 1.5rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .product {
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       text-align: center;
+      padding: 1rem;
+    }
+
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .product-name {
+      font-weight: bold;
+      margin-top: 0.5rem;
+    }
+
+    .product-note {
+      font-size: 0.9rem;
+      color: #777;
     }
 
     footer {
-      margin-top: 2rem;
-      font-size: 0.9rem;
-      color: #999;
+      font-size: 0.8rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <header>Добро пожаловать в efirale</header>
+  <header>
+    <h1>efirale</h1>
+    <p>Ароматы, которые дышат</p>
+  </header>
+
   <section>
-    <p>Ароматы, которые дышат. Чистый состав. Уникальный подход.</p>
-    <p>Скоро здесь появится полноценный сайт с описанием продуктов на русском и английском.</p>
+    <h2>Духи</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/parfum1.jpg" alt="Духи 1" />
+        <div class="product-name">Лесной воздух</div>
+        <div class="product-note">Хвойные, свежесть утра</div>
+      </div>
+      <div class="product">
+        <img src="images/parfum2.jpg" alt="Духи 2" />
+        <div class="product-name">Солнечный сад</div>
+        <div class="product-note">Цветы, цитрусы, тепло</div>
+      </div>
+    </div>
+
+    <h2>Ароматизаторы</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/aroma1.jpg" alt="Ароматизатор 1" />
+        <div class="product-name">Дом в лаванде</div>
+        <div class="product-note">Лаванда, спокойствие</div>
+      </div>
+    </div>
+
+    <h2>Прочее</h2>
+    <div class="product-grid">
+      <div class="product">
+        <img src="images/other1.jpg" alt="Прочее 1" />
+        <div class="product-name">Саше из роз</div>
+        <div class="product-note">Тканевое, эфирные масла</div>
+      </div>
+    </div>
   </section>
-  <footer>&copy; 2025 efirale</footer>
+
+  <footer>
+    &copy; 2025 efirale · <a href="https://instagram.com/твой_аккаунт">Instagram</a>
+  </footer>
 </body>
 </html>
