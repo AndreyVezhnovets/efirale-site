@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Sitemap: https://efirale.com/sitemap.xml
+
+# Запрет на индексацию служебных файлов
+Disallow: /.idea/
+Disallow: /*.js$
+Disallow: /*.css$
