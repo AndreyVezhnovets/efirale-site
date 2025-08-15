@@ -1,0 +1,85 @@
+/* ===== EF2: стили для каруселей в секциях продуктов (#rec971234641, #rec971240401) ===== */
+/* Отдельные классы ef2-* чтобы не конфликтовать с существующей каруселью духов */
+:root{
+  --ef2-gap:16px;
+  --ef2-card-bg:#fdf2f2;
+  --ef2-brand:#F5C3C0;
+  --ef2-text:#000000;
+  --ef2-radius:15px;
+  --ef2-shadow:0 2px 12px rgba(0,0,0,.06);
+}
+
+.ef2-carousel{
+  position:relative;
+  margin:20px auto 50px;
+  max-width:1140px;
+}
+
+.ef2-track{
+  display:flex;
+  gap:var(--ef2-gap);
+  overflow-x:auto;
+  overscroll-behavior:contain;
+  scroll-snap-type:x mandatory;
+  scroll-padding-left:8px;
+  padding:8px 8px;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.ef2-track::-webkit-scrollbar{display:none;height:0;}
+
+.ef2-item{
+  flex:0 0 calc((100% - 3*var(--ef2-gap)) / 4); /* 4 карточки на десктопе */
+  min-width:260px;
+  background:var(--ef2-card-bg);
+  border-radius:var(--ef2-radius);
+  box-shadow:var(--ef2-shadow);
+  color:var(--ef2-text);
+  scroll-snap-align:start;
+  scroll-snap-stop:always;
+  overflow:hidden;
+}
+.ef2-item__img{aspect-ratio:4/5;background:#fff;}
+.ef2-item__img img{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+.ef2-item__body{padding:14px 14px 12px;}
+.ef2-item__title{margin:0 0 6px;font-size:16px;line-height:1.25;}
+.ef2-item__descr{margin:0 0 10px;font-size:14px;opacity:.85;}
+.ef2-item__meta{display:flex;align-items:center;justify-content:space-between;}
+.ef2-item__price{font-weight:700;}
+.ef2-item__btn{
+  display:inline-block;padding:8px 14px;background:var(--ef2-brand);
+  color:var(--ef2-text);border-radius:30px;font-weight:600;text-decoration:none;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.ef2-item__btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.10);}
+.ef2-item__btn:focus-visible{outline:3px solid var(--ef2-brand);outline-offset:2px;}
+
+.ef2-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:36px;height:36px;border-radius:50%;border:1px solid rgba(0,0,0,.12);
+  background:#fff;color:var(--ef2-text);display:grid;place-items:center;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.08);transition:transform .15s ease, box-shadow .15s ease;z-index:2;
+}
+.ef2-btn--prev{left:6px;}
+.ef2-btn--next{right:6px;}
+.ef2-btn:hover{transform:translateY(-50%) scale(1.04);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+.ef2-btn:focus-visible{outline:3px solid var(--ef2-brand);outline-offset:2px;}
+
+@media (max-width:1200px){
+  .ef2-item{flex-basis:calc((100% - 2*var(--ef2-gap)) / 3);}
+}
+@media (max-width:980px){
+  .ef2-item{flex-basis:calc((100% - var(--ef2-gap)) / 2);}
+}
+@media (max-width:640px){
+  .ef2-carousel{margin:10px auto 35px;}
+  .ef2-track{padding:8px 8px;}
+  .ef2-item{flex-basis:82%;min-width:240px;}
+  .ef2-btn{display:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  .ef2-btn,.ef2-item__btn{transition:none;}
+  .ef2-track{scroll-snap-type:x proximity;}
+}
