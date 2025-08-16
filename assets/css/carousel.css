@@ -103,3 +103,26 @@
 .ef2-item__meta{
   padding-right: 120px;          /* чтобы цена/текст не заходили под кнопку */
 }
+
+#rec971219806,
+#rec971234641,
+#rec971240401{
+  --ef-card-bg: #E8F5E9; /* фон карточек (очень светлый мятный) */
+  --ef-brand:   #C8E6C9; /* фон кнопок и outline */
+}
+
+/* на случай, если где-то цвета были заданы напрямую */
+.ef-item{ background: var(--ef-card-bg); }
+.ef-item__btn{
+  background: var(--ef-brand);
+  color: #000;               /* читабельный текст на светлой кнопке */
+}
+.ef-item__btn:focus-visible{ outline-color: var(--ef-brand); }
+
+/* если используешь вторую карусель с классами ef2-* (из carousel.css) */
+.ef2-item{ background: #E8F5E9; }
+.ef2-item__btn{
+  background: #C8E6C9;
+  color: #000;
+}
+.ef2-item__btn:focus-visible{ outline-color: #C8E6C9; }
