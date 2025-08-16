@@ -83,3 +83,23 @@
   .ef2-btn,.ef2-item__btn{transition:none;}
   .ef2-track{scroll-snap-type:x proximity;}
 }
+
+.ef2-item{
+  position: relative;            /* чтобы absolute позиционировалась относительно карточки */
+}
+
+.ef2-item__body{
+  /* было: padding:14px 14px 12px; */
+  padding: 14px 14px 64px;       /* добавили место снизу под кнопку, ~52px запас */
+}
+
+.ef2-item__btn{
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  margin: 0;                     /* на всякий случай убираем внешние отступы */
+}
+
+.ef2-item__meta{
+  padding-right: 120px;          /* чтобы цена/текст не заходили под кнопку */
+}
