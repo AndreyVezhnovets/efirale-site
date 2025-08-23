@@ -49,13 +49,19 @@
 
   function buildCard(raw){
     const img   = get(raw, ['img','image'], '');
-    const title = get(raw, ['title'], '');
-    const descr = get(raw, ['descr','description'], '');
-    const alt   = get(raw, ['alt'], title || 'Товар');
+    const link  = get(raw, ['link'], '#rec971219826'); // по умолчанию ведём в форму контактов на странице
+    
+    // Get current language
+    const currentLanguage = (window.EfiraleTranslation && window.EfiraleTranslation.getCurrent()) || 'ru';
+    
+    // Handle multilingual content
+    const title = getLocalizedText(raw, 'title', currentLanguage);
+    const descr = getLocalizedText(raw, 'descr', currentLanguage) || getLocalizedText(raw, 'description', currentLanguage);
+    const btn = getLocalizedText(raw, 'btn', currentLanguage) || 'Заказать';
+    const alt = get(raw, ['alt'], title || 'Товар');
+    
     const prices = get(raw, ['prices'], null);
     const legacyPrice = get(raw, ['price'], '');
-    const btn   = get(raw, ['btn'], 'Заказать');
-    const link  = get(raw, ['link'], '#rec971219826'); // по умолчанию ведём в форму контактов на странице
 
     const art = document.createElement('article');
     art.className = 'ef2-item';
@@ -81,15 +87,23 @@
         <img loading="lazy" src="${img}" alt="${escapeHtml(alt)}">
       </div>
       <div class="ef2-item__body">
-        <h3 class="ef2-item__title">${escapeHtml(title)}</h3>
-        ${descr ? `<p class="ef2-item__descr">${escapeHtml(descr)}</p>` : ''}
+        <h3 class="ef2-item__title" data-raw-title='${JSON.stringify(raw.title || title).replace(/'/g, '&apos;')}'>${escapeHtml(title)}</h3>
+        ${descr ? `<p class="ef2-item__descr" data-raw-descr='${JSON.stringify(raw.descr || raw.description || descr).replace(/'/g, '&apos;')}'>${escapeHtml(descr)}</p>` : ''}
         <div class="ef2-item__meta">
           ${priceHtml}
-          <a class="ef2-item__btn" href="${link}">${escapeHtml(btn)}</a>
+          <a class="ef2-item__btn" href="${link}" data-raw-btn='${JSON.stringify(raw.btn || btn).replace(/'/g, '&apos;')}'>${escapeHtml(btn)}</a>
         </div>
       </div>
     `;
     return art;
+  }
+
+  function getLocalizedText(obj, field, language) {
+    const value = get(obj, [field], '');
+    if (typeof value === 'object' && value !== null) {
+      return value[language] || value['ru'] || Object.values(value)[0] || '';
+    }
+    return value;
   }
 
   function escapeHtml(s){
@@ -257,6 +271,12 @@
       const { currency, config } = event.detail;
       updateAllCarouselPrices(currency, config);
     });
+    
+    // Listen for language changes and update content
+    window.addEventListener('languageChanged', function(event) {
+      const { language } = event.detail;
+      updateAllCarouselContent(language);
+    });
   }
   
   function updateAllCarouselPrices(currency, config) {
@@ -270,6 +290,50 @@
         }
       } catch (e) {
         console.warn('Failed to update carousel price:', e);
+      }
+    });
+  }
+  
+  function updateAllCarouselContent(language) {
+    // Update titles
+    const titleElements = document.querySelectorAll('.ef2-item__title[data-raw-title]');
+    titleElements.forEach(element => {
+      try {
+        const rawTitle = JSON.parse(element.dataset.rawTitle);
+        const localizedTitle = getLocalizedText({ title: rawTitle }, 'title', language);
+        if (localizedTitle) {
+          element.textContent = localizedTitle;
+        }
+      } catch (e) {
+        console.warn('Failed to update carousel title:', e);
+      }
+    });
+    
+    // Update descriptions
+    const descrElements = document.querySelectorAll('.ef2-item__descr[data-raw-descr]');
+    descrElements.forEach(element => {
+      try {
+        const rawDescr = JSON.parse(element.dataset.rawDescr);
+        const localizedDescr = getLocalizedText({ descr: rawDescr }, 'descr', language);
+        if (localizedDescr) {
+          element.textContent = localizedDescr;
+        }
+      } catch (e) {
+        console.warn('Failed to update carousel description:', e);
+      }
+    });
+    
+    // Update buttons
+    const btnElements = document.querySelectorAll('.ef2-item__btn[data-raw-btn]');
+    btnElements.forEach(element => {
+      try {
+        const rawBtn = JSON.parse(element.dataset.rawBtn);
+        const localizedBtn = getLocalizedText({ btn: rawBtn }, 'btn', language);
+        if (localizedBtn) {
+          element.textContent = localizedBtn;
+        }
+      } catch (e) {
+        console.warn('Failed to update carousel button:', e);
       }
     });
   }

@@ -1,9 +1,24 @@
 [
   {
     "img": "images/diffusers/clean_home_aroma.JPEG",
-    "title": "CLEAN HOME AROMA · 100 мл",
-    "descr": "Чистая свежесть дома: лёгкие цветочные ноты и белый мускус.",
-    "btn": "Заказать",
+    "title": {
+      "ru": "CLEAN HOME AROMA · 100 мл",
+      "en": "CLEAN HOME AROMA · 100 ml",
+      "fr": "CLEAN HOME AROMA · 100 ml",
+      "es": "CLEAN HOME AROMA · 100 ml"
+    },
+    "descr": {
+      "ru": "Чистая свежесть дома: лёгкие цветочные ноты и белый мускус.",
+      "en": "Clean home freshness: light floral notes and white musk.",
+      "fr": "Fraîcheur de maison propre : notes florales légères et musc blanc.",
+      "es": "Frescura de hogar limpio: notas florales ligeras y almizcle blanco."
+    },
+    "btn": {
+      "ru": "Заказать",
+      "en": "Order",
+      "fr": "Commander",
+      "es": "Pedir"
+    },
     "link": "#rec971219826",
     "alt": "Диффузор EFIRALE Clean Home Aroma на столе",
     "prices": {
@@ -14,9 +29,24 @@
   },
   {
     "img": "images/412485625_692318773009461_735622356708785915_n.jpg",
-    "title": "Рид-диффузор Garden · 125 мл",
-    "descr": "Свежая травяная композиция с мягкой древесной базой. В комплекте чёрные палочки.",
-    "btn": "Заказать",
+    "title": {
+      "ru": "Рид-диффузор Garden · 125 мл",
+      "en": "Reed Diffuser Garden · 125 ml",
+      "fr": "Diffuseur à Tiges Garden · 125 ml",
+      "es": "Difusor de Varillas Garden · 125 ml"
+    },
+    "descr": {
+      "ru": "Свежая травяная композиция с мягкой древесной базой. В комплекте чёрные палочки.",
+      "en": "Fresh herbal composition with soft woody base. Black sticks included.",
+      "fr": "Composition herbacée fraîche avec base boisée douce. Tiges noires incluses.",
+      "es": "Composición herbal fresca con base amaderada suave. Varillas negras incluidas."
+    },
+    "btn": {
+      "ru": "Заказать",
+      "en": "Order",
+      "fr": "Commander",
+      "es": "Pedir"
+    },
     "link": "#rec971219826",
     "alt": "Диффузор EFIRALE Garden 125 мл с палочками",
     "prices": {
@@ -27,9 +57,24 @@
   },
   {
     "img": "images/429278758_921695929259401_2264813347241346075_n.jpg",
-    "title": "Amber & Vanilla · 125 мл",
-    "descr": "Тёплый ванильно-амбровый уют для гостиной и кофейного уголка.",
-    "btn": "Заказать",
+    "title": {
+      "ru": "Amber & Vanilla · 125 мл",
+      "en": "Amber & Vanilla · 125 ml",
+      "fr": "Ambre & Vanille · 125 ml",
+      "es": "Ámbar y Vainilla · 125 ml"
+    },
+    "descr": {
+      "ru": "Тёплый ванильно-амбровый уют для гостиной и кофейного уголка.",
+      "en": "Warm vanilla-amber coziness for living room and coffee corner.",
+      "fr": "Confort chaleureux vanille-ambre pour salon et coin café.",
+      "es": "Calidez acogedora de vainilla y ámbar para sala y rincón de café."
+    },
+    "btn": {
+      "ru": "Заказать",
+      "en": "Order",
+      "fr": "Commander",
+      "es": "Pedir"
+    },
     "link": "#rec971219826",
     "alt": "Рид-диффузор EFIRALE на столе рядом с чашкой кофе",
     "prices": {
@@ -40,9 +85,24 @@
   },
   {
     "img": "images/430667304_1845088455942319_3557097513199174285_n.jpg",
-    "title": "Коллекция домашних ароматов",
-    "descr": "Стеклянные флаконы на масляной базе — стойкий и ровный аромат без спирта.",
-    "btn": "Выбрать",
+    "title": {
+      "ru": "Коллекция домашних ароматов",
+      "en": "Home Fragrance Collection",
+      "fr": "Collection de Parfums d'Intérieur",
+      "es": "Colección de Fragancias para el Hogar"
+    },
+    "descr": {
+      "ru": "Стеклянные флаконы на масляной базе — стойкий и ровный аромат без спирта.",
+      "en": "Glass bottles with oil base — long-lasting and even fragrance without alcohol.",
+      "fr": "Flacons en verre à base d'huile — parfum durable et uniforme sans alcool.",
+      "es": "Frascos de vidrio con base de aceite — fragancia duradera y uniforme sin alcohol."
+    },
+    "btn": {
+      "ru": "Выбрать",
+      "en": "Select",
+      "fr": "Sélectionner",
+      "es": "Seleccionar"
+    },
     "link": "#rec971219826",
     "alt": "Три флакона диффузоров EFIRALE на белом фоне",
     "prices": {
@@ -53,9 +113,24 @@
   },
   {
     "img": "images/432685928_1728591231011264_5810978352876255746_n.jpg",
-    "title": "Масляная база",
-    "descr": "Мягкое и длительное раскрытие. Подходит для жилых помещений.",
-    "btn": "Подробнее",
+    "title": {
+      "ru": "Масляная база",
+      "en": "Oil Base",
+      "fr": "Base Huileuse",
+      "es": "Base de Aceite"
+    },
+    "descr": {
+      "ru": "Мягкое и длительное раскрытие. Подходит для жилых помещений.",
+      "en": "Soft and long-lasting development. Suitable for living spaces.",
+      "fr": "Développement doux et durable. Convient aux espaces de vie.",
+      "es": "Desarrollo suave y duradero. Adecuado para espacios habitables."
+    },
+    "btn": {
+      "ru": "Подробнее",
+      "en": "Learn More",
+      "fr": "En Savoir Plus",
+      "es": "Saber Más"
+    },
     "link": "#rec971219826",
     "alt": "Макросъёмка масляной жидкости в стекле",
     "prices": {

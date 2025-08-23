@@ -1,11 +1,26 @@
 [
   {
-    "title": "GRAPE WATER · 30 мл",
-    "descr": "Свежая виноградная вуаль с зелёными листьями, белыми цветами и прозрачным мускусом.",
+    "title": {
+      "ru": "GRAPE WATER · 30 мл",
+      "en": "GRAPE WATER · 30 ml",
+      "fr": "GRAPE WATER · 30 ml",
+      "es": "GRAPE WATER · 30 ml"
+    },
+    "descr": {
+      "ru": "Свежая виноградная вуаль с зелёными листьями, белыми цветами и прозрачным мускусом.",
+      "en": "Fresh grape veil with green leaves, white flowers and transparent musk.",
+      "fr": "Voile de raisin frais avec des feuilles vertes, des fleurs blanches et du musc transparent.",
+      "es": "Velo de uva fresca con hojas verdes, flores blancas y almizcle transparente."
+    },
     "notes": ["белый виноград", "зелёные листья", "белые цветы", "мускус"],
     "img": "images/perfumes/grape_water.jpg",
     "alt": "GRAPE WATER · 30 мл",
-    "btn": "Выбрать",
+    "btn": {
+      "ru": "Выбрать",
+      "en": "Select",
+      "fr": "Sélectionner",
+      "es": "Seleccionar"
+    },
     "link": "#rec971219826",
     "url": "https://wa.me/995591801109?text=Хочу%20заказать%20GRAPE%20WATER%20(30%20мл)",
     "prices": {
@@ -16,9 +31,24 @@
   },
   {
     "img": "images/461941358_1504631966903058_6131011731134869960_n.jpg",
-    "title": "EFIRALE 995 · 50 мл",
-    "descr": "Амброво-ванильный унисекс с тёплым древесным шлейфом. Стойкий и комфортный.",
-    "btn": "Выбрать",
+    "title": {
+      "ru": "EFIRALE 995 · 50 мл",
+      "en": "EFIRALE 995 · 50 ml",
+      "fr": "EFIRALE 995 · 50 ml",
+      "es": "EFIRALE 995 · 50 ml"
+    },
+    "descr": {
+      "ru": "Амброво-ванильный унисекс с тёплым древесным шлейфом. Стойкий и комфортный.",
+      "en": "Amber-vanilla unisex with warm woody trail. Long-lasting and comfortable.",
+      "fr": "Unisexe ambré-vanillé avec un sillage boisé chaleureux. Durable et confortable.",
+      "es": "Unisex ámbar-vainilla con estela amaderada cálida. Duradero y cómodo."
+    },
+    "btn": {
+      "ru": "Выбрать",
+      "en": "Select",
+      "fr": "Sélectionner",
+      "es": "Seleccionar"
+    },
     "link": "#rec971219826",
     "alt": "Флакон EFIRALE 995 в руке на фоне жёлтой ткани",
     "prices": {
@@ -29,9 +59,24 @@
   },
   {
     "img": "images/471322650_1076249710965278_3675225502310420666_n.jpg",
-    "title": "EFIRALE 39 · 50 мл",
-    "descr": "Лёгкий цветочно-мускусный профиль — чисто и деликатно на каждый день.",
-    "btn": "Выбрать",
+    "title": {
+      "ru": "EFIRALE 39 · 50 мл",
+      "en": "EFIRALE 39 · 50 ml",
+      "fr": "EFIRALE 39 · 50 ml",
+      "es": "EFIRALE 39 · 50 ml"
+    },
+    "descr": {
+      "ru": "Лёгкий цветочно-мускусный профиль — чисто и деликатно на каждый день.",
+      "en": "Light floral-musky profile — clean and delicate for everyday wear.",
+      "fr": "Profil floral-musqué léger — propre et délicat pour tous les jours.",
+      "es": "Perfil floral-almizclado ligero — limpio y delicado para el uso diario."
+    },
+    "btn": {
+      "ru": "Выбрать",
+      "en": "Select",
+      "fr": "Sélectionner",
+      "es": "Seleccionar"
+    },
     "link": "#rec971219826",
     "alt": "Портрет с флаконом EFIRALE в тёплом закатном свете",
     "prices": {
@@ -42,9 +87,24 @@
   },
   {
     "img": "images/502997225_568366296003517_8496847362545473648_n.jpg",
-    "title": "Coffee Collection",
-    "descr": "Линейка с кофейными и пряными акцентами — бодрит и создаёт уют.",
-    "btn": "Смотреть линейку",
+    "title": {
+      "ru": "Coffee Collection",
+      "en": "Coffee Collection",
+      "fr": "Collection Café",
+      "es": "Colección Café"
+    },
+    "descr": {
+      "ru": "Линейка с кофейными и пряными акцентами — бодрит и создаёт уют.",
+      "en": "Collection with coffee and spicy accents — energizes and creates coziness.",
+      "fr": "Collection aux accents café et épicés — énergise et crée la convivialité.",
+      "es": "Colección con acentos de café y especias — energiza y crea calidez."
+    },
+    "btn": {
+      "ru": "Смотреть линейку",
+      "en": "View Collection",
+      "fr": "Voir la Collection",
+      "es": "Ver Colección"
+    },
     "link": "#rec971219826",
     "alt": "Квадратные флаконы EFIRALE рядом с кофейными зёрнами",
     "prices": {
@@ -55,9 +115,24 @@
   },
   {
     "img": "images/417796007_1364119047805835_2592653898014700057_n.jpg",
-    "title": "Мини-спреи",
-    "descr": "Удобный формат для знакомства с ароматами или путешествий.",
-    "btn": "Заказать",
+    "title": {
+      "ru": "Мини-спреи",
+      "en": "Mini Sprays",
+      "fr": "Mini Vaporisateurs",
+      "es": "Mini Aerosoles"
+    },
+    "descr": {
+      "ru": "Удобный формат для знакомства с ароматами или путешествий.",
+      "en": "Convenient format for discovering fragrances or traveling.",
+      "fr": "Format pratique pour découvrir les parfums ou voyager.",
+      "es": "Formato conveniente para descubrir fragancias o viajar."
+    },
+    "btn": {
+      "ru": "Заказать",
+      "en": "Order",
+      "fr": "Commander",
+      "es": "Pedir"
+    },
     "link": "#rec971219826",
     "alt": "Мини-спрей EFIRALE на фоне упаковки и тканевого мешочка",
     "prices": {

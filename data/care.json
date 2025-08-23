@@ -1,9 +1,24 @@
 [
   {
     "img": "images/443527251_1003774387756019_1475985230681462650_n.jpg",
-    "title": "Natural Deodorant · Lavender",
-    "descr": "Натуральный дезодорант без алюминия. Лёгкий аромат лаванды, комфорт на каждый день.",
-    "btn": "Купить",
+    "title": {
+      "ru": "Natural Deodorant · Lavender",
+      "en": "Natural Deodorant · Lavender",
+      "fr": "Déodorant Naturel · Lavande",
+      "es": "Desodorante Natural · Lavanda"
+    },
+    "descr": {
+      "ru": "Натуральный дезодорант без алюминия. Лёгкий аромат лаванды, комфорт на каждый день.",
+      "en": "Natural aluminum-free deodorant. Light lavender scent, everyday comfort.",
+      "fr": "Déodorant naturel sans aluminium. Parfum léger de lavande, confort quotidien.",
+      "es": "Desodorante natural sin aluminio. Aroma ligero de lavanda, comodidad diaria."
+    },
+    "btn": {
+      "ru": "Купить",
+      "en": "Buy",
+      "fr": "Acheter",
+      "es": "Comprar"
+    },
     "link": "#rec971219826",
     "alt": "Баночки дезодоранта EFIRALE Lavender в коробке",
     "prices": {
@@ -14,9 +29,24 @@
   },
   {
     "img": "images/503272912_2483238248704354_1419654338490031360_n.jpg",
-    "title": "Natural Deodorant · Mint",
-    "descr": "Свежая мята. Перерабатываемая упаковка, надёжная защита без жесткости.",
-    "btn": "Купить",
+    "title": {
+      "ru": "Natural Deodorant · Mint",
+      "en": "Natural Deodorant · Mint",
+      "fr": "Déodorant Naturel · Menthe",
+      "es": "Desodorante Natural · Menta"
+    },
+    "descr": {
+      "ru": "Свежая мята. Перерабатываемая упаковка, надёжная защита без жесткости.",
+      "en": "Fresh mint. Recyclable packaging, reliable protection without harshness.",
+      "fr": "Menthe fraîche. Emballage recyclable, protection fiable sans agressivité.",
+      "es": "Menta fresca. Empaque reciclable, protección confiable sin dureza."
+    },
+    "btn": {
+      "ru": "Купить",
+      "en": "Buy",
+      "fr": "Acheter",
+      "es": "Comprar"
+    },
     "link": "#rec971219826",
     "alt": "Дезодоранты EFIRALE Mint и Lavender в подарочной упаковке",
     "prices": {
@@ -27,9 +57,24 @@
   },
   {
     "img": "images/462712230_531149946302183_4900705862049265508_n.jpg",
-    "title": "Aromatic Textiles & Room Spray · 30 мл",
-    "descr": "Мгновенно освежает воздух и текстиль. Компактный формат для дома и в дорогу.",
-    "btn": "Заказать",
+    "title": {
+      "ru": "Aromatic Textiles & Room Spray · 30 мл",
+      "en": "Aromatic Textiles & Room Spray · 30 ml",
+      "fr": "Spray Aromatique Textiles & Pièce · 30 ml",
+      "es": "Spray Aromático para Textiles y Habitación · 30 ml"
+    },
+    "descr": {
+      "ru": "Мгновенно освежает воздух и текстиль. Компактный формат для дома и в дорогу.",
+      "en": "Instantly refreshes air and textiles. Compact format for home and travel.",
+      "fr": "Rafraîchit instantanément l'air et les textiles. Format compact pour la maison et les voyages.",
+      "es": "Refresca instantáneamente el aire y los textiles. Formato compacto para casa y viajes."
+    },
+    "btn": {
+      "ru": "Заказать",
+      "en": "Order",
+      "fr": "Commander",
+      "es": "Pedir"
+    },
     "link": "#rec971219826",
     "alt": "Спреи для тканей и помещений EFIRALE 30 мл на столе",
     "prices": {
