@@ -48,13 +48,7 @@
 .ef2-item__descr{margin:0 0 10px;font-size:14px;opacity:.85;}
 .ef2-item__meta{display:flex;align-items:center;justify-content:space-between;}
 .ef2-item__price{font-weight:700;}
-.ef2-item__btn{
-  display:inline-block;padding:8px 14px;background:var(--ef2-brand);
-  color:var(--ef2-text);border-radius:30px;font-weight:600;text-decoration:none;
-  transition:transform .15s ease, box-shadow .15s ease;
-}
-.ef2-item__btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.10);}
-.ef2-item__btn:focus-visible{outline:3px solid var(--ef2-brand);outline-offset:2px;}
+/* Кнопки удалены из карточек товаров */
 
 .ef2-btn{
   position:absolute;top:50%;transform:translateY(-50%);

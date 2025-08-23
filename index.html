@@ -686,10 +686,53 @@
                                                                                        data-menu-submenu-hook=""
                                                                                        data-menu-item-number="4">О
                                 бренде</a></li>
-                            <li class="t454__list_item" style="padding:0 0 0 15px;"><a class="t-menu__link-item"
+                            <li class="t454__list_item" style="padding:0 15px 0 0;"><a class="t-menu__link-item"
                                                                                        href="#rec971219826"
                                                                                        data-menu-submenu-hook=""
                                                                                        data-menu-item-number="5">Контакты</a>
+                            </li>
+                            <li class="t454__list_item currency-selector" style="padding:0 0 0 15px;">
+                                <div class="currency-dropdown">
+                                    <button class="currency-btn" type="button" aria-label="Выбор валюты" aria-expanded="false">
+                                        <span class="currency-icon" id="current-currency-icon">
+                                            <!-- USD ASCII symbol by default -->
+                                            <span class="currency-ascii">$</span>
+                                        </span>
+                                        <span class="currency-code" id="current-currency-code">USD</span>
+                                        <svg class="currency-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
+                                            <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                    </button>
+                                    <div class="currency-menu" id="currency-menu">
+                                        <button class="currency-option" data-currency="USD" type="button">
+                                            <span class="currency-icon">
+                                                <span class="currency-ascii">$</span>
+                                            </span>
+                                            <span class="currency-info">
+                                                <span class="currency-name">USD</span>
+                                                <span class="currency-desc">Доллар США</span>
+                                            </span>
+                                        </button>
+                                        <button class="currency-option" data-currency="RUB" type="button">
+                                            <span class="currency-icon">
+                                                <span class="currency-ascii">₽</span>
+                                            </span>
+                                            <span class="currency-info">
+                                                <span class="currency-name">RUB</span>
+                                                <span class="currency-desc">Российский рубль</span>
+                                            </span>
+                                        </button>
+                                        <button class="currency-option" data-currency="GEL" type="button">
+                                            <span class="currency-icon">
+                                                <span class="currency-ascii">₾</span>
+                                            </span>
+                                            <span class="currency-info">
+                                                <span class="currency-name">GEL</span>
+                                                <span class="currency-desc">Грузинский лари</span>
+                                            </span>
+                                        </button>
+                                    </div>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -756,7 +799,194 @@
         }</style>
         <style> #rec971219791 .t454__logo {
             color: #000000;
-        }</style>
+        }
+
+        /* Currency Selector Styles */
+        .currency-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .currency-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: none;
+            border: none;
+            color: #000000;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .currency-btn:hover {
+            background-color: rgba(200, 230, 201, 0.1);
+        }
+
+        .currency-arrow {
+            transition: transform 0.2s ease;
+        }
+
+        .currency-btn[aria-expanded="true"] .currency-arrow {
+            transform: rotate(180deg);
+        }
+
+        .currency-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+            min-width: 200px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.2s ease;
+        }
+
+        .currency-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .currency-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 12px 16px;
+            background: none;
+            border: none;
+            text-align: left;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            border-radius: 0;
+        }
+
+        .currency-option:first-child {
+            border-radius: 12px 12px 0 0;
+        }
+
+        .currency-option:last-child {
+            border-radius: 0 0 12px 12px;
+        }
+
+        .currency-option:only-child {
+            border-radius: 12px;
+        }
+
+        .currency-option:hover {
+            background-color: rgba(200, 230, 201, 0.1);
+        }
+
+        .currency-option.active {
+            background-color: rgba(200, 230, 201, 0.2);
+        }
+
+        .currency-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .currency-name {
+            font-weight: 600;
+            font-size: 14px;
+            color: #000000;
+        }
+
+        .currency-desc {
+            font-size: 12px;
+            color: rgba(0, 0, 0, 0.6);
+        }
+
+        /* ASCII Currency Symbols */
+        .currency-ascii {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #333;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .currency-btn .currency-ascii {
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+        }
+
+        .currency-option .currency-ascii {
+            width: 24px;
+            height: 24px;
+            font-size: 14px;
+        }
+
+        /* Specific colors for each currency */
+        .currency-option[data-currency="USD"] .currency-ascii {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border-color: #45a049;
+        }
+
+        .currency-option[data-currency="RUB"] .currency-ascii {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            border-color: #1976D2;
+        }
+
+        .currency-option[data-currency="GEL"] .currency-ascii {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            color: white;
+            border-color: #F57C00;
+        }
+
+        /* Active state colors */
+        .currency-option.active .currency-ascii,
+        #current-currency-icon .currency-ascii {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Update current currency icon based on selection */
+        .currency-btn[data-current="USD"] .currency-ascii {
+            background: linear-gradient(135deg, #4CAF50, #45a049);
+            color: white;
+            border-color: #45a049;
+        }
+
+        .currency-btn[data-current="RUB"] .currency-ascii {
+            background: linear-gradient(135deg, #2196F3, #1976D2);
+            color: white;
+            border-color: #1976D2;
+        }
+
+        .currency-btn[data-current="GEL"] .currency-ascii {
+            background: linear-gradient(135deg, #FF9800, #F57C00);
+            color: white;
+            border-color: #F57C00;
+        }
+
+        /* Mobile adjustments */
+        @media screen and (max-width: 980px) {
+            .currency-selector {
+                display: none;
+            }
+        }
+        </style>
     </div>
     <div id="rec971219796" class="r t-rec t-rec_pt_0" style="padding-top:0px; " data-animationappear="off"
          data-record-type="995" bis_skin_checked="1"> <!-- cover -->
@@ -1526,6 +1756,179 @@
         #rec971219826 .t718__address { color: #000000; }</style>
     </div>
 </div>
+<!-- Фиксированная кнопка для мобильных устройств -->
+<a href="#rec971219826" class="mobile-sticky-button">Заказать сейчас</a>
+
+<script>
+// Currency Management System with Bank-style Icons
+(function() {
+    'use strict';
+    
+    // Currency configuration with ASCII symbols
+    const CURRENCIES = {
+        USD: { 
+            symbol: '$', 
+            name: 'USD', 
+            desc: 'Доллар США',
+            ascii: '$'
+        },
+        RUB: { 
+            symbol: '₽', 
+            name: 'RUB', 
+            desc: 'Российский рубль',
+            ascii: '₽'
+        },
+        GEL: { 
+            symbol: '₾', 
+            name: 'GEL', 
+            desc: 'Грузинский лари',
+            ascii: '₾'
+        }
+    };
+    
+    let currentCurrency = localStorage.getItem('efirale_currency') || 'USD';
+    
+    // DOM elements
+    let currencyBtn, currencyMenu, currentCurrencyIcon, currentCurrencyCode;
+    
+    function initCurrencySelector() {
+        currencyBtn = document.querySelector('.currency-btn');
+        currencyMenu = document.querySelector('.currency-menu');
+        currentCurrencyIcon = document.getElementById('current-currency-icon');
+        currentCurrencyCode = document.getElementById('current-currency-code');
+        
+        if (!currencyBtn || !currencyMenu) return;
+        
+        // Set initial currency
+        updateCurrentCurrencyDisplay();
+        updateActiveOption();
+        
+        // Event listeners
+        currencyBtn.addEventListener('click', toggleCurrencyMenu);
+        document.addEventListener('click', handleOutsideClick);
+        
+        // Currency option clicks
+        const options = document.querySelectorAll('.currency-option');
+        options.forEach(option => {
+            option.addEventListener('click', (e) => {
+                const currency = option.dataset.currency;
+                if (currency && currency !== currentCurrency) {
+                    setCurrency(currency);
+                }
+                closeCurrencyMenu();
+            });
+        });
+    }
+    
+    function toggleCurrencyMenu() {
+        const isOpen = currencyMenu.classList.contains('show');
+        if (isOpen) {
+            closeCurrencyMenu();
+        } else {
+            openCurrencyMenu();
+        }
+    }
+    
+    function openCurrencyMenu() {
+        currencyMenu.classList.add('show');
+        currencyBtn.setAttribute('aria-expanded', 'true');
+    }
+    
+    function closeCurrencyMenu() {
+        currencyMenu.classList.remove('show');
+        currencyBtn.setAttribute('aria-expanded', 'false');
+    }
+    
+    function handleOutsideClick(e) {
+        if (!currencyBtn.contains(e.target) && !currencyMenu.contains(e.target)) {
+            closeCurrencyMenu();
+        }
+    }
+    
+    function setCurrency(currency) {
+        if (!CURRENCIES[currency]) return;
+        
+        currentCurrency = currency;
+        localStorage.setItem('efirale_currency', currency);
+        
+        updateCurrentCurrencyDisplay();
+        updateActiveOption();
+        updateAllPrices();
+        
+        // Dispatch custom event for other components
+        window.dispatchEvent(new CustomEvent('currencyChanged', { 
+            detail: { currency, config: CURRENCIES[currency] }
+        }));
+    }
+    
+    function updateCurrentCurrencyDisplay() {
+        if (!currentCurrencyIcon || !currentCurrencyCode) return;
+        
+        const config = CURRENCIES[currentCurrency];
+        if (!config) return;
+        
+        // Update icon with ASCII symbol
+        currentCurrencyIcon.innerHTML = `<span class="currency-ascii">${config.ascii}</span>`;
+        
+        // Update button data attribute for styling
+        currencyBtn.setAttribute('data-current', currentCurrency);
+        
+        // Update code
+        currentCurrencyCode.textContent = config.name;
+    }
+    
+    function updateActiveOption() {
+        const options = document.querySelectorAll('.currency-option');
+        options.forEach(option => {
+            if (option.dataset.currency === currentCurrency) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+    }
+    
+
+    
+    function updateAllPrices() {
+        // Update prices in all carousels
+        const priceElements = document.querySelectorAll('.ef2-item__price[data-prices]');
+        priceElements.forEach(updatePriceElement);
+    }
+    
+    function updatePriceElement(element) {
+        try {
+            const prices = JSON.parse(element.dataset.prices);
+            const price = prices[currentCurrency];
+            if (price !== undefined) {
+                const config = CURRENCIES[currentCurrency];
+                element.textContent = `${config.symbol}${price}`;
+            }
+        } catch (e) {
+            console.warn('Failed to update price:', e);
+        }
+    }
+    
+    // Public API
+    window.EfiraleCurrency = {
+        getCurrent: () => currentCurrency,
+        setCurrency,
+        getConfig: (currency) => CURRENCIES[currency || currentCurrency],
+        formatPrice: (price, currency = currentCurrency) => {
+            const config = CURRENCIES[currency];
+            return config ? `${config.symbol}${price}` : `${price}`;
+        }
+    };
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initCurrencySelector);
+    } else {
+        initCurrencySelector();
+    }
+})();
+</script>
+
 </body>
 <script defer src="assets/js/carousel.js"></script>
 </html>

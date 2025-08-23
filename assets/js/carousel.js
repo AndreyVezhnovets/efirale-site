@@ -52,12 +52,30 @@
     const title = get(raw, ['title'], '');
     const descr = get(raw, ['descr','description'], '');
     const alt   = get(raw, ['alt'], title || 'Товар');
-    const price = get(raw, ['price'], '');
+    const prices = get(raw, ['prices'], null);
+    const legacyPrice = get(raw, ['price'], '');
     const btn   = get(raw, ['btn'], 'Заказать');
     const link  = get(raw, ['link'], '#rec971219826'); // по умолчанию ведём в форму контактов на странице
 
     const art = document.createElement('article');
     art.className = 'ef2-item';
+    
+    // Build price display
+    let priceHtml = '<span></span>';
+    if (prices && typeof prices === 'object') {
+      // Multi-currency support
+      const currentCurrency = (window.EfiraleCurrency && window.EfiraleCurrency.getCurrent()) || 'USD';
+      const currentPrice = prices[currentCurrency];
+      if (currentPrice !== undefined) {
+        const currencyConfig = window.EfiraleCurrency && window.EfiraleCurrency.getConfig(currentCurrency);
+        const symbol = currencyConfig ? currencyConfig.symbol : '$';
+        priceHtml = `<span class="ef2-item__price" data-prices='${JSON.stringify(prices).replace(/'/g, '&apos;')}'>${symbol}${currentPrice}</span>`;
+      }
+    } else if (legacyPrice) {
+      // Legacy single price support
+      priceHtml = `<span class="ef2-item__price">${escapeHtml(legacyPrice)}</span>`;
+    }
+    
     art.innerHTML = `
       <div class="ef2-item__img" role="img" aria-label="">
         <img loading="lazy" src="${img}" alt="${escapeHtml(alt)}">
@@ -66,7 +84,7 @@
         <h3 class="ef2-item__title">${escapeHtml(title)}</h3>
         ${descr ? `<p class="ef2-item__descr">${escapeHtml(descr)}</p>` : ''}
         <div class="ef2-item__meta">
-          ${price ? `<span class="ef2-item__price">${escapeHtml(price)}</span>` : '<span></span>'}
+          ${priceHtml}
           <a class="ef2-item__btn" href="${link}">${escapeHtml(btn)}</a>
         </div>
       </div>
@@ -233,6 +251,27 @@
 
   function boot(){
     MAP.forEach(initFor);
+    
+    // Listen for currency changes and update prices
+    window.addEventListener('currencyChanged', function(event) {
+      const { currency, config } = event.detail;
+      updateAllCarouselPrices(currency, config);
+    });
+  }
+  
+  function updateAllCarouselPrices(currency, config) {
+    const priceElements = document.querySelectorAll('.ef2-item__price[data-prices]');
+    priceElements.forEach(element => {
+      try {
+        const prices = JSON.parse(element.dataset.prices);
+        const price = prices[currency];
+        if (price !== undefined) {
+          element.textContent = `${config.symbol}${price}`;
+        }
+      } catch (e) {
+        console.warn('Failed to update carousel price:', e);
+      }
+    });
   }
 
   if(document.readyState === 'loading'){
