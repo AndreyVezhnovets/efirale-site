@@ -2,8 +2,8 @@
 /* Отдельные классы ef2-* чтобы не конфликтовать с существующей каруселью духов */
 :root{
   --ef2-gap:16px;
-  --ef2-card-bg:#fdf2f2;
-  --ef2-brand:#F5C3C0;
+  --ef2-card-bg:#E8F5E9;
+  --ef2-brand:#C8E6C9;
   --ef2-text:#000000;
   --ef2-radius:15px;
   --ef2-shadow:0 2px 12px rgba(0,0,0,.06);
@@ -19,7 +19,8 @@
   display:flex;
   gap:var(--ef2-gap);
   overflow-x:auto;
-  overscroll-behavior:contain;
+  overscroll-behavior-x:contain;
+  overscroll-behavior-y:auto;
   scroll-snap-type:x mandatory;
   scroll-padding-left:8px;
   padding:8px 8px;
@@ -48,7 +49,13 @@
 .ef2-item__descr{margin:0 0 10px;font-size:14px;opacity:.85;}
 .ef2-item__meta{display:flex;align-items:center;justify-content:space-between;}
 .ef2-item__price{font-weight:700;}
-/* Кнопки удалены из карточек товаров */
+.ef2-item__btn{
+  display:inline-block;padding:8px 14px;background:var(--ef2-brand);
+  color:var(--ef2-text);border-radius:30px;font-weight:600;text-decoration:none;
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.ef2-item__btn:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.10);}
+.ef2-item__btn:focus-visible{outline:3px solid var(--ef2-brand);outline-offset:2px;}
 
 .ef2-btn{
   position:absolute;top:50%;transform:translateY(-50%);
@@ -77,46 +84,3 @@
   .ef2-btn,.ef2-item__btn{transition:none;}
   .ef2-track{scroll-snap-type:x proximity;}
 }
-
-.ef2-item{
-  position: relative;            /* чтобы absolute позиционировалась относительно карточки */
-}
-
-.ef2-item__body{
-  /* было: padding:14px 14px 12px; */
-  padding: 14px 14px 64px;       /* добавили место снизу под кнопку, ~52px запас */
-}
-
-.ef2-item__btn{
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  margin: 0;                     /* на всякий случай убираем внешние отступы */
-}
-
-.ef2-item__meta{
-  padding-right: 120px;          /* чтобы цена/текст не заходили под кнопку */
-}
-
-#rec971219806,
-#rec971234641,
-#rec971240401{
-  --ef-card-bg: #E8F5E9; /* фон карточек (очень светлый мятный) */
-  --ef-brand:   #C8E6C9; /* фон кнопок и outline */
-}
-
-/* на случай, если где-то цвета были заданы напрямую */
-.ef-item{ background: var(--ef-card-bg); }
-.ef-item__btn{
-  background: var(--ef-brand);
-  color: #000;               /* читабельный текст на светлой кнопке */
-}
-.ef-item__btn:focus-visible{ outline-color: var(--ef-brand); }
-
-/* если используешь вторую карусель с классами ef2-* (из carousel.css) */
-.ef2-item{ background: #E8F5E9; }
-.ef2-item__btn{
-  background: #C8E6C9;
-  color: #000;
-}
-.ef2-item__btn:focus-visible{ outline-color: #C8E6C9; }

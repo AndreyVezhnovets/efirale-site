@@ -228,8 +228,63 @@
         <div id="nav971219791marker" bis_skin_checked="1"></div>
         <div class="tmenu-mobile" bis_skin_checked="1">
             <div class="tmenu-mobile__container" bis_skin_checked="1">
+                <!-- Mobile language and currency selectors (left side) -->
+                <div class="tmenu-mobile__selectors">
+                    <!-- Language selector for mobile -->
+                    <div class="mobile-language-selector">
+                        <button class="mobile-language-btn" type="button" aria-label="Выбор языка">
+                            <span class="mobile-language-flag" id="mobile-current-language-flag">🇷🇺</span>
+                        </button>
+                        <div class="mobile-language-menu" id="mobile-language-menu">
+                            <button class="mobile-language-option" data-language="ru" type="button">
+                                <span class="mobile-language-flag">🇷🇺</span>
+                                <span class="mobile-language-name">RU</span>
+                            </button>
+                            <button class="mobile-language-option" data-language="en" type="button">
+                                <span class="mobile-language-flag">🇺🇸</span>
+                                <span class="mobile-language-name">EN</span>
+                            </button>
+                            <button class="mobile-language-option" data-language="fr" type="button">
+                                <span class="mobile-language-flag">🇫🇷</span>
+                                <span class="mobile-language-name">FR</span>
+                            </button>
+                            <button class="mobile-language-option" data-language="es" type="button">
+                                <span class="mobile-language-flag">🇪🇸</span>
+                                <span class="mobile-language-name">ES</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Currency selector for mobile -->
+                    <div class="mobile-currency-selector">
+                        <button class="mobile-currency-btn" type="button" aria-label="Выбор валюты">
+                            <span class="mobile-currency-icon" id="mobile-current-currency-icon">
+                                <span class="mobile-currency-ascii">$</span>
+                            </span>
+                        </button>
+                        <div class="mobile-currency-menu" id="mobile-currency-menu">
+                            <button class="mobile-currency-option" data-currency="USD" type="button">
+                                <span class="mobile-currency-icon"><span class="mobile-currency-ascii">$</span></span>
+                                <span class="mobile-currency-name">USD</span>
+                            </button>
+                            <button class="mobile-currency-option" data-currency="EUR" type="button">
+                                <span class="mobile-currency-icon"><span class="mobile-currency-ascii">€</span></span>
+                                <span class="mobile-currency-name">EUR</span>
+                            </button>
+                            <button class="mobile-currency-option" data-currency="RUB" type="button">
+                                <span class="mobile-currency-icon"><span class="mobile-currency-ascii">₽</span></span>
+                                <span class="mobile-currency-name">RUB</span>
+                            </button>
+                            <button class="mobile-currency-option" data-currency="GEL" type="button">
+                                <span class="mobile-currency-icon"><span class="mobile-currency-ascii">₾</span></span>
+                                <span class="mobile-currency-name">GEL</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="tmenu-mobile__burgerlogo" bis_skin_checked="1">
-                    <div class="tmenu-mobile__burgerlogo__title t-title" field="title" bis_skin_checked="1">Ароматы и
+                    <div class="tmenu-mobile__burgerlogo__title t-title" field="title" bis_skin_checked="1" data-translate="header.logo">Ароматы и
                         духи
                     </div>
                 </div>
@@ -262,6 +317,21 @@
                         if (!burger.closest('.tmenu-mobile') && !burger.closest('.t450__burger_container') && !burger.closest('.t466__container') && !burger.closest('.t204__burger') && !burger.closest('.t199__js__menu-toggler')) {
                             burger.classList.toggle('t-menuburger-opened');
                             burger.classList.remove('t-menuburger-unhovered');
+                        } else if (burger.closest('.tmenu-mobile')) {
+                            // Handle mobile menu toggle
+                            burger.classList.toggle('t-menuburger-opened');
+                            var mobileMenu = document.getElementById('nav971219791');
+                            if (mobileMenu) {
+                                if (burger.classList.contains('t-menuburger-opened')) {
+                                    mobileMenu.classList.remove('tmenu-mobile__menucontent_hidden');
+                                    mobileMenu.classList.add('tmenu-mobile__menucontent_shown');
+                                    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+                                } else {
+                                    mobileMenu.classList.remove('tmenu-mobile__menucontent_shown');
+                                    mobileMenu.classList.add('tmenu-mobile__menucontent_hidden');
+                                    document.body.style.overflow = ''; // Restore scrolling
+                                }
+                            }
                         }
                     });
                     var menu = rec.querySelector('[data-menu="yes"]');
@@ -275,6 +345,14 @@
                             });
                             if (isSubmenuHook) return;
                             burger.classList.remove('t-menuburger-opened');
+                            
+                            // Close mobile menu if open
+                            var mobileMenu = document.getElementById('nav971219791');
+                            if (mobileMenu && mobileMenu.classList.contains('tmenu-mobile__menucontent_shown')) {
+                                mobileMenu.classList.remove('tmenu-mobile__menucontent_shown');
+                                mobileMenu.classList.add('tmenu-mobile__menucontent_hidden');
+                                document.body.style.overflow = ''; // Restore scrolling
+                            }
                         });
                     });
                     menu.addEventListener('clickedAnchorInTooltipMenu', function () {
@@ -286,7 +364,131 @@
                     t_onFuncLoad('t_menuburger_init', function () {
                         t_menuburger_init('971219791');
                     });
-                });</script>
+                    
+                    // Initialize mobile selectors
+                    initMobileSelectors();
+                });
+                
+                function initMobileSelectors() {
+                    // Mobile language selector
+                    const mobileLangBtn = document.querySelector('.mobile-language-btn');
+                    const mobileLangMenu = document.querySelector('.mobile-language-menu');
+                    const mobileLangOptions = document.querySelectorAll('.mobile-language-option');
+                    const mobileCurrentLangFlag = document.getElementById('mobile-current-language-flag');
+                    
+                    if (mobileLangBtn && mobileLangMenu) {
+                        mobileLangBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            e.stopImmediatePropagation();
+                            mobileLangMenu.classList.toggle('show');
+                            // Close currency menu if open
+                            const currencyMenu = document.querySelector('.mobile-currency-menu');
+                            if (currencyMenu) currencyMenu.classList.remove('show');
+                        });
+                        
+                        mobileLangOptions.forEach(option => {
+                            option.addEventListener('click', function() {
+                                const language = this.dataset.language;
+                                const flag = this.querySelector('.mobile-language-flag').textContent;
+                                
+                                if (mobileCurrentLangFlag) {
+                                    mobileCurrentLangFlag.textContent = flag;
+                                }
+                                
+                                // Use existing language system
+                                if (window.EfiraleTranslation && window.EfiraleTranslation.setLanguage) {
+                                    window.EfiraleTranslation.setLanguage(language);
+                                }
+                                
+                                mobileLangMenu.classList.remove('show');
+                            });
+                        });
+                    }
+                    
+                    // Mobile currency selector
+                    const mobileCurrBtn = document.querySelector('.mobile-currency-btn');
+                    const mobileCurrMenu = document.querySelector('.mobile-currency-menu');
+                    const mobileCurrOptions = document.querySelectorAll('.mobile-currency-option');
+                    const mobileCurrentCurrIcon = document.getElementById('mobile-current-currency-icon');
+                    
+                    if (mobileCurrBtn && mobileCurrMenu) {
+                        mobileCurrBtn.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            e.stopImmediatePropagation();
+                            mobileCurrMenu.classList.toggle('show');
+                            // Close language menu if open
+                            const langMenu = document.querySelector('.mobile-language-menu');
+                            if (langMenu) langMenu.classList.remove('show');
+                        });
+                        
+                        mobileCurrOptions.forEach(option => {
+                            option.addEventListener('click', function() {
+                                const currency = this.dataset.currency;
+                                const ascii = this.querySelector('.mobile-currency-ascii').textContent;
+                                
+                                if (mobileCurrentCurrIcon) {
+                                    const asciiSpan = mobileCurrentCurrIcon.querySelector('.mobile-currency-ascii');
+                                    if (asciiSpan) {
+                                        asciiSpan.textContent = ascii;
+                                    }
+                                }
+                                
+                                // Use existing currency system
+                                if (window.EfiraleCurrency && window.EfiraleCurrency.setCurrency) {
+                                    window.EfiraleCurrency.setCurrency(currency);
+                                } else {
+                                    // Fallback: trigger currency change event
+                                    localStorage.setItem('efirale_currency', currency);
+                                    window.dispatchEvent(new CustomEvent('currencyChanged', {
+                                        detail: { currency: currency }
+                                    }));
+                                }
+                                
+                                mobileCurrMenu.classList.remove('show');
+                            });
+                        });
+                    }
+                    
+                    // Prevent event bubbling on mobile selectors container
+                    const mobileSelectors = document.querySelector('.tmenu-mobile__selectors');
+                    if (mobileSelectors) {
+                        mobileSelectors.addEventListener('click', function(e) {
+                            e.stopPropagation();
+                        });
+                    }
+                    
+                    // Close menus when clicking outside
+                    document.addEventListener('click', function() {
+                        if (mobileLangMenu) mobileLangMenu.classList.remove('show');
+                        if (mobileCurrMenu) mobileCurrMenu.classList.remove('show');
+                    });
+                    
+                    // Initialize with current values
+                    updateMobileSelectors();
+                }
+                
+                function updateMobileSelectors() {
+                    // Update mobile language selector
+                    const currentLang = localStorage.getItem('efirale_language') || 'ru';
+                    const langFlags = { ru: '🇷🇺', en: '🇺🇸', fr: '🇫🇷', es: '🇪🇸' };
+                    const mobileCurrentLangFlag = document.getElementById('mobile-current-language-flag');
+                    if (mobileCurrentLangFlag && langFlags[currentLang]) {
+                        mobileCurrentLangFlag.textContent = langFlags[currentLang];
+                    }
+                    
+                    // Update mobile currency selector
+                    const currentCurrency = localStorage.getItem('efirale_currency') || 'USD';
+                    const currencySymbols = { USD: '$', EUR: '€', RUB: '₽', GEL: '₾' };
+                    const mobileCurrentCurrIcon = document.getElementById('mobile-current-currency-icon');
+                    if (mobileCurrentCurrIcon && currencySymbols[currentCurrency]) {
+                        const asciiSpan = mobileCurrentCurrIcon.querySelector('.mobile-currency-ascii');
+                        if (asciiSpan) {
+                            asciiSpan.textContent = currencySymbols[currentCurrency];
+                        }
+                    }
+                }</script>
                 <style>.t-menuburger {
                     position: relative;
                     flex-shrink: 0;
@@ -591,6 +793,107 @@
             -ms-flex-pack: justify;
             justify-content: space-between;
         }
+        
+        /* Mobile selectors styling */
+        .tmenu-mobile__selectors {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .mobile-language-selector,
+        .mobile-currency-selector {
+            position: relative;
+        }
+        
+        .mobile-language-btn,
+        .mobile-currency-btn {
+            background: none;
+            border: none;
+            padding: 8px;
+            border-radius: 6px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: background-color 0.2s;
+        }
+        
+        .mobile-language-btn:hover,
+        .mobile-currency-btn:hover {
+            background-color: #f0f0f0;
+        }
+        
+        .mobile-language-flag {
+            font-size: 18px;
+        }
+        
+        .mobile-currency-ascii {
+            font-size: 16px;
+            font-weight: bold;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            color: #333;
+        }
+        
+        .mobile-language-menu,
+        .mobile-currency-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+            min-width: 120px;
+        }
+        
+        .mobile-language-menu.show,
+        .mobile-currency-menu.show {
+            display: block;
+        }
+        
+        .mobile-language-option,
+        .mobile-currency-option {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 10px 12px;
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+        }
+        
+        .mobile-language-option:hover,
+        .mobile-currency-option:hover {
+            background-color: #f8f8f8;
+        }
+        
+        .mobile-language-option:first-child,
+        .mobile-currency-option:first-child {
+            border-radius: 6px 6px 0 0;
+        }
+        
+        .mobile-language-option:last-child,
+        .mobile-currency-option:last-child {
+            border-radius: 0 0 6px 6px;
+        }
+        
+        .mobile-language-name,
+        .mobile-currency-name {
+            font-size: 14px;
+            font-weight: 500;
+        }
 
         .tmenu-mobile__list {
             display: block;
@@ -615,8 +918,22 @@
 
         @media screen and (max-width: 980px) {
             .tmenu-mobile__menucontent_hidden {
-                display: none;
+                display: none !important;
                 height: 100%;
+            }
+            
+            .tmenu-mobile__menucontent_shown {
+                display: block !important;
+                position: fixed !important;
+                top: 64px !important;
+                left: 0 !important;
+                right: 0 !important;
+                bottom: 0 !important;
+                background: #ffffff !important;
+                z-index: 999 !important;
+                overflow-y: auto !important;
+                padding: 20px !important;
+                box-sizing: border-box !important;
             }
 
             .tmenu-mobile {
@@ -1243,21 +1560,120 @@
 
         /* Mobile adjustments */
         @media screen and (max-width: 980px) {
-            .currency-selector,
-            .language-selector {
+            /* Hide desktop menu completely */
+            .t454__maincontainer {
                 display: none !important;
             }
             
-            .t454__maincontainer {
-                flex-direction: column !important;
-                align-items: stretch !important;
-                height: auto !important;
+            /* Show desktop menu content in mobile menu when opened */
+            .tmenu-mobile__menucontent_shown .t454__maincontainer {
+                display: block !important;
             }
             
-            .t454__leftwrapper,
-            .t454__rightwrapper {
+            /* Show mobile menu */
+            .tmenu-mobile {
+                display: block !important;
+            }
+            
+            /* Mobile menu content styling */
+            .tmenu-mobile__menucontent_hidden {
+                display: none;
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: #ffffff;
+                z-index: 999;
+                overflow-y: auto;
+                padding: 20px;
+                box-sizing: border-box;
+            }
+            
+            /* Show mobile menu when opened */
+            .tmenu-mobile__menucontent_shown {
+                display: block !important;
+            }
+            
+            /* Hide desktop elements in mobile menu */
+            .tmenu-mobile__menucontent_hidden .t454__logowrapper,
+            .tmenu-mobile__menucontent_hidden .t454__rightwrapper,
+            .tmenu-mobile__menucontent_shown .t454__logowrapper,
+            .tmenu-mobile__menucontent_shown .t454__rightwrapper {
+                display: none !important;
+            }
+            
+            /* Show only left menu wrapper with navigation */
+            .tmenu-mobile__menucontent_hidden .t454__leftwrapper,
+            .tmenu-mobile__menucontent_shown .t454__leftwrapper {
                 padding: 0 !important;
+                text-align: left !important;
+                width: 100% !important;
+                display: block !important;
+            }
+            
+            .tmenu-mobile__menucontent_hidden .t454__maincontainer,
+            .tmenu-mobile__menucontent_shown .t454__maincontainer {
                 height: auto !important;
+                padding: 0 !important;
+            }
+            
+            /* Ensure navigation wrapper is visible */
+            .tmenu-mobile__menucontent_shown .t454__leftmenuwrapper {
+                display: block !important;
+            }
+            
+            /* Mobile menu list styling */
+            .tmenu-mobile__menucontent_hidden .t454__list,
+            .tmenu-mobile__menucontent_shown .t454__list {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 0 !important;
+                display: flex !important;
+                list-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            
+            .tmenu-mobile__menucontent_hidden .t454__list_item,
+            .tmenu-mobile__menucontent_shown .t454__list_item {
+                width: 100% !important;
+                padding: 0 !important;
+                border-bottom: 1px solid #f0f0f0;
+                display: block !important;
+            }
+            
+            .tmenu-mobile__menucontent_hidden .t-menu__link-item,
+            .tmenu-mobile__menucontent_shown .t-menu__link-item {
+                display: block !important;
+                padding: 15px 0 !important;
+                color: #000000 !important;
+                text-decoration: none !important;
+                font-size: 18px !important;
+                font-weight: 500 !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            
+            /* Force visibility of navigation elements */
+            .tmenu-mobile__menucontent_shown .t454__list_item:not(.language-selector):not(.currency-selector) {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .tmenu-mobile__menucontent_shown .t-menu__link-item {
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            /* Hide desktop language and currency selectors in mobile menu */
+            .tmenu-mobile__menucontent_hidden .language-selector,
+            .tmenu-mobile__menucontent_hidden .currency-selector,
+            .tmenu-mobile__menucontent_shown .language-selector,
+            .tmenu-mobile__menucontent_shown .currency-selector {
+                display: none !important;
             }
         }
         </style>
