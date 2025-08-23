@@ -759,6 +759,15 @@
                                                 <span class="currency-desc" data-translate="currency.usd.desc">Доллар США</span>
                                             </span>
                                         </button>
+                                        <button class="currency-option" data-currency="EUR" type="button">
+                                            <span class="currency-icon">
+                                                <span class="currency-ascii">€</span>
+                                            </span>
+                                            <span class="currency-info">
+                                                <span class="currency-name">EUR</span>
+                                                <span class="currency-desc" data-translate="currency.eur.desc">Евро</span>
+                                            </span>
+                                        </button>
                                         <button class="currency-option" data-currency="RUB" type="button">
                                             <span class="currency-icon">
                                                 <span class="currency-ascii">₽</span>
@@ -987,6 +996,12 @@
             background: linear-gradient(135deg, #4CAF50, #45a049);
             color: white;
             border-color: #45a049;
+        }
+
+        .currency-option[data-currency="EUR"] .currency-ascii {
+            background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+            color: white;
+            border-color: #7B1FA2;
         }
 
         .currency-option[data-currency="RUB"] .currency-ascii {
@@ -1862,8 +1877,7 @@
                             </div>
                             <div class="t718__address t-text t-text_sm" field="text2" bis_skin_checked="1"><a
                                     href="https://www.google.com/maps/?q=41.63175900501371,41.603733103867185"
-                                    target="_blank" style="color:inherit;text-decoration:underline;">47a Sherif
-                                Khimshiashvili St, Batumi 5 этаж</a>
+                                    target="_blank" style="color:inherit;text-decoration:underline;" data-translate="address.full">Батуми, ул. Шерифа Химшиашвили, 47А, 5 этаж</a>
                             </div>
                             <div class="t-sociallinks" bis_skin_checked="1">
                                 <ul role="list" class="t-sociallinks__wrapper" aria-label="Соц. сети">
@@ -2028,6 +2042,12 @@
             name: 'USD', 
             desc: 'Доллар США',
             ascii: '$'
+        },
+        EUR: { 
+            symbol: '€', 
+            name: 'EUR', 
+            desc: 'Евро',
+            ascii: '€'
         },
         RUB: { 
             symbol: '₽', 
