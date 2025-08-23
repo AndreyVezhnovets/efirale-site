@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logo": "Fragancias y Perfumes"
+  },
+  "nav": {
+    "perfumes": "Perfumes",
+    "diffusers": "Difusores", 
+    "care": "Cuidado",
+    "about": "Acerca de",
+    "contacts": "Contactos"
+  },
+  "hero": {
+    "title": "Encuentra Tu Fragancia Perfecta",
+    "description": "Perfumes naturales artesanales hechos con aceites esenciales y extractos aromáticos. Elige una composición según tu estado de ánimo — desde cítricos frescos y hierbas hasta notas cálidas amaderadas y gourmand. Entrega en toda Georgia.",
+    "button": "Saber Más"
+  },
+  "sections": {
+    "perfumes": {
+      "title": "Fragancias para la Vida",
+      "description": "Descubre un mundo de fragancias únicas y crea tu propia atmósfera"
+    },
+    "diffusers": {
+      "title": "Descubre el Mundo de las Fragancias",
+      "description": "Nuestros difusores llenarán tu hogar con aromas favoritos y crearán una atmósfera acogedora."
+    },
+    "care": {
+      "title": "Cosméticos de Cuidado y Frescura",
+      "description": "Una amplia gama de productos para el cuidado diario del cuerpo y mantener la frescura."
+    },
+    "about": {
+      "title": "Nuestra Historia",
+      "description": "Creamos fragancias que cuentan historias y transmiten emociones. Nuestra misión es combinar tradición e innovación para que todos puedan encontrar su aroma único que refleje su individualidad."
+    },
+    "contacts": {
+      "title": "Contáctanos",
+      "description": "Damos la bienvenida a tus comentarios ya que tus opiniones importan, y estamos listos para ayudarte a elegir fragancias para que puedas encontrar la que te convenga."
+    }
+  },
+  "form": {
+    "email_placeholder": "Tu dirección de correo electrónico",
+    "name_placeholder": "Tu nombre completo",
+    "message_placeholder": "Tus comentarios",
+    "submit_button": "Enviar Mensaje"
+  },
+  "currency": {
+    "usd": {
+      "desc": "Dólar Estadounidense"
+    },
+    "rub": {
+      "desc": "Rublo Ruso"
+    },
+    "gel": {
+      "desc": "Lari Georgiano"
+    }
+  },
+  "buttons": {
+    "select": "Seleccionar",
+    "order": "Pedir",
+    "buy": "Comprar",
+    "view_collection": "Ver Colección",
+    "learn_more": "Saber Más",
+    "order_now": "Pedir Ahora"
+  },
+  "address": {
+    "full": "47a Sherif Khimshiashvili St, Batumi 5º piso"
+  }
+}

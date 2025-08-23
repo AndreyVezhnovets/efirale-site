@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logo": "Fragrances & Perfumes"
+  },
+  "nav": {
+    "perfumes": "Perfumes",
+    "diffusers": "Diffusers", 
+    "care": "Care",
+    "about": "About",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Find Your Perfect Fragrance",
+    "description": "Handcrafted natural perfumes made from essential oils and aromatic extracts. Choose a composition to match your mood — from fresh citrus and herbs to warm woody and gourmand notes. Delivery throughout Georgia.",
+    "button": "Learn More"
+  },
+  "sections": {
+    "perfumes": {
+      "title": "Fragrances for Life",
+      "description": "Discover a world of unique fragrances and create your own atmosphere"
+    },
+    "diffusers": {
+      "title": "Discover the World of Fragrances",
+      "description": "Our diffusers will fill your home with favorite scents and create a cozy atmosphere."
+    },
+    "care": {
+      "title": "Care and Freshness Cosmetics",
+      "description": "A wide range of products for daily body care and maintaining freshness."
+    },
+    "about": {
+      "title": "Our Story",
+      "description": "We create fragrances that tell stories and convey emotions. Our mission is to combine tradition and innovation so that everyone can find their unique scent that reflects their individuality."
+    },
+    "contacts": {
+      "title": "Contact Us",
+      "description": "We welcome your feedback as your opinions matter, and we're ready to help you choose fragrances so you can find the one that suits you."
+    }
+  },
+  "form": {
+    "email_placeholder": "Your email address",
+    "name_placeholder": "Your full name",
+    "message_placeholder": "Your comments",
+    "submit_button": "Send Message"
+  },
+  "currency": {
+    "usd": {
+      "desc": "US Dollar"
+    },
+    "rub": {
+      "desc": "Russian Ruble"
+    },
+    "gel": {
+      "desc": "Georgian Lari"
+    }
+  },
+  "buttons": {
+    "select": "Select",
+    "order": "Order",
+    "buy": "Buy",
+    "view_collection": "View Collection",
+    "learn_more": "Learn More",
+    "order_now": "Order Now"
+  },
+  "address": {
+    "full": "47a Sherif Khimshiashvili St, Batumi 5th floor"
+  }
+}

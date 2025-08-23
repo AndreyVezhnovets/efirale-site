@@ -1,0 +1,67 @@
+{
+  "header": {
+    "logo": "Parfums & Fragrances"
+  },
+  "nav": {
+    "perfumes": "Parfums",
+    "diffusers": "Diffuseurs", 
+    "care": "Soins",
+    "about": "À propos",
+    "contacts": "Contacts"
+  },
+  "hero": {
+    "title": "Trouvez Votre Parfum Idéal",
+    "description": "Parfums naturels artisanaux fabriqués à partir d'huiles essentielles et d'extraits aromatiques. Choisissez une composition selon votre humeur — des agrumes frais et herbes aux notes boisées chaudes et gourmandes. Livraison dans toute la Géorgie.",
+    "button": "En Savoir Plus"
+  },
+  "sections": {
+    "perfumes": {
+      "title": "Parfums pour la Vie",
+      "description": "Découvrez un monde de parfums uniques et créez votre propre atmosphère"
+    },
+    "diffusers": {
+      "title": "Découvrez le Monde des Parfums",
+      "description": "Nos diffuseurs rempliront votre maison de parfums préférés et créeront une atmosphère chaleureuse."
+    },
+    "care": {
+      "title": "Cosmétiques de Soin et Fraîcheur",
+      "description": "Une large gamme de produits pour les soins quotidiens du corps et le maintien de la fraîcheur."
+    },
+    "about": {
+      "title": "Notre Histoire",
+      "description": "Nous créons des parfums qui racontent des histoires et transmettent des émotions. Notre mission est de combiner tradition et innovation pour que chacun puisse trouver son parfum unique qui reflète son individualité."
+    },
+    "contacts": {
+      "title": "Contactez-Nous",
+      "description": "Nous accueillons vos commentaires car vos opinions comptent, et nous sommes prêts à vous aider à choisir des parfums pour que vous puissiez trouver celui qui vous convient."
+    }
+  },
+  "form": {
+    "email_placeholder": "Votre adresse e-mail",
+    "name_placeholder": "Votre nom complet",
+    "message_placeholder": "Vos commentaires",
+    "submit_button": "Envoyer le Message"
+  },
+  "currency": {
+    "usd": {
+      "desc": "Dollar Américain"
+    },
+    "rub": {
+      "desc": "Rouble Russe"
+    },
+    "gel": {
+      "desc": "Lari Géorgien"
+    }
+  },
+  "buttons": {
+    "select": "Sélectionner",
+    "order": "Commander",
+    "buy": "Acheter",
+    "view_collection": "Voir la Collection",
+    "learn_more": "En Savoir Plus",
+    "order_now": "Commander Maintenant"
+  },
+  "address": {
+    "full": "47a Sherif Khimshiashvili St, Batoumi 5ème étage"
+  }
+}
