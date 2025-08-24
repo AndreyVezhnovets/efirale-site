@@ -904,11 +904,11 @@
             font-size: 24px;
             font-weight: 400;
             white-space: nowrap;
-            vertical-align: middle.
+            vertical-align: middle;
         }
 
         .tmenu-mobile__imglogo {
-            height: auto.
+            height: auto;
             display: block;
             max-width: 300px !important;
             box-sizing: border-box;
@@ -2855,6 +2855,347 @@
         initLanguageSelector();
     }
 })();
+</script>
+
+<!-- Form Validation System -->
+<script>
+    // Form validation system
+    class FormValidator {
+        constructor(formId) {
+            this.form = document.getElementById(formId);
+            this.emailInput = this.form.querySelector('input[type="email"]');
+            this.nameInput = this.form.querySelector('input[name="Name"]');
+            this.messageInput = this.form.querySelector('textarea[name="Textarea"]');
+            this.submitButton = this.form.querySelector('button[type="submit"]');
+            this.translations = {};
+            this.lastLoadedLanguage = null;
+            
+            this.loadTranslations().then(() => {
+                this.init();
+            });
+        }
+        
+        async loadTranslations() {
+            try {
+                const currentLang = this.getCurrentLanguage();
+                console.log(`Loading translations for language: ${currentLang}`);
+                
+                const response = await fetch(`data/translations/${currentLang}.json`);
+                if (response.ok) {
+                    this.translations = await response.json();
+                    this.lastLoadedLanguage = currentLang;
+                    console.log(`Successfully loaded translations for ${currentLang}:`, this.translations.form?.validation);
+                } else {
+                    console.warn(`Failed to load ${currentLang}.json, falling back to Russian`);
+                    // Fallback to Russian if current language fails
+                    const fallbackResponse = await fetch('data/translations/ru.json');
+                    this.translations = await fallbackResponse.json();
+                    this.lastLoadedLanguage = 'ru';
+                }
+            } catch (error) {
+                console.error('Failed to load translations:', error);
+                // Use fallback messages if translation loading fails
+                this.translations = {
+                    form: {
+                        validation: {
+                            required: 'Это поле обязательно для заполнения',
+                            email: 'Введите корректный email адрес',
+                            name: 'Введите ваше имя (минимум 2 символа)',
+                            message: 'Введите сообщение (минимум 10 символов)',
+                            sending: 'Отправка...',
+                            success: 'Сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.',
+                            error: 'Произошла ошибка при отправке сообщения. Попробуйте еще раз.'
+                        }
+                    }
+                };
+                this.lastLoadedLanguage = 'ru';
+                console.log('Using fallback Russian translations');
+            }
+        }
+        
+        init() {
+            // Prevent form submission and validate
+            this.form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const isValid = await this.validateForm();
+                if (isValid) {
+                    this.submitForm();
+                }
+            });
+            
+            // Real-time validation
+            this.emailInput.addEventListener('blur', async () => await this.validateEmail());
+            this.nameInput.addEventListener('blur', async () => await this.validateName());
+            this.messageInput.addEventListener('blur', async () => await this.validateMessage());
+            
+            // Clear errors on input
+            this.emailInput.addEventListener('input', () => this.clearError(this.emailInput));
+            this.nameInput.addEventListener('input', () => this.clearError(this.nameInput));
+            this.messageInput.addEventListener('input', () => this.clearError(this.messageInput));
+        }
+        
+        getCurrentLanguage() {
+            return localStorage.getItem('efirale_language') || 'ru';
+        }
+        
+        async getErrorMessage(type) {
+            // Always get current language and reload translations if needed
+            const currentLang = this.getCurrentLanguage();
+            
+            // Always reload translations if language changed
+            if (this.lastLoadedLanguage !== currentLang) {
+                console.log(`Language changed from ${this.lastLoadedLanguage} to ${currentLang}, reloading translations...`);
+                await this.loadTranslations();
+            }
+            
+            // Fallback if translations not loaded
+            if (!this.translations.form?.validation?.[type]) {
+                console.warn(`Translation not found for type: ${type}, language: ${currentLang}`);
+                // Try to reload translations once more
+                await this.loadTranslations();
+            }
+            
+            return this.translations.form?.validation?.[type] || `[${type}] Translation missing`;
+        }
+        
+        async forceReloadTranslations() {
+            this.lastLoadedLanguage = null;
+            await this.loadTranslations();
+        }
+        
+        async validateEmail() {
+            const email = this.emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (!email) {
+                const message = await this.getErrorMessage('required');
+                this.showError(this.emailInput, message);
+                return false;
+            }
+            
+            if (!emailRegex.test(email)) {
+                const message = await this.getErrorMessage('email');
+                this.showError(this.emailInput, message);
+                return false;
+            }
+            
+            this.clearError(this.emailInput);
+            return true;
+        }
+        
+        async validateName() {
+            const name = this.nameInput.value.trim();
+            
+            if (!name) {
+                const message = await this.getErrorMessage('required');
+                this.showError(this.nameInput, message);
+                return false;
+            }
+            
+            if (name.length < 2) {
+                const message = await this.getErrorMessage('name');
+                this.showError(this.nameInput, message);
+                return false;
+            }
+            
+            this.clearError(this.nameInput);
+            return true;
+        }
+        
+        async validateMessage() {
+            const message = this.messageInput.value.trim();
+            
+            if (!message) {
+                const errorMessage = await this.getErrorMessage('required');
+                this.showError(this.messageInput, errorMessage);
+                return false;
+            }
+            
+            if (message.length < 10) {
+                const errorMessage = await this.getErrorMessage('message');
+                this.showError(this.messageInput, errorMessage);
+                return false;
+            }
+            
+            this.clearError(this.messageInput);
+            return true;
+        }
+        
+        async validateForm() {
+            const isEmailValid = await this.validateEmail();
+            const isNameValid = await this.validateName();
+            const isMessageValid = await this.validateMessage();
+            
+            return isEmailValid && isNameValid && isMessageValid;
+        }
+        
+        showError(input, message) {
+            const inputGroup = input.closest('.t-input-group');
+            const errorDiv = inputGroup.querySelector('.t-input-error');
+            
+            // Add error styling
+            input.style.border = '2px solid #ff4444';
+            input.style.backgroundColor = '#fff5f5';
+            
+            // Show error message
+            errorDiv.textContent = message;
+            errorDiv.style.display = 'block';
+            errorDiv.style.color = '#ff4444';
+            errorDiv.style.fontSize = '14px';
+            errorDiv.style.marginTop = '5px';
+            
+            // Add shake animation
+            input.style.animation = 'shake 0.5s ease-in-out';
+            setTimeout(() => {
+                input.style.animation = '';
+            }, 500);
+        }
+        
+        clearError(input) {
+            const inputGroup = input.closest('.t-input-group');
+            const errorDiv = inputGroup.querySelector('.t-input-error');
+            
+            // Remove error styling
+            input.style.border = '1px solid #c7c7c7';
+            input.style.backgroundColor = '';
+            
+            // Hide error message
+            errorDiv.textContent = '';
+            errorDiv.style.display = 'none';
+        }
+        
+        async submitForm() {
+            // Show loading state
+            const originalText = this.submitButton.textContent;
+            this.submitButton.disabled = true;
+            this.submitButton.style.opacity = '0.7';
+            
+            const sendingText = await this.getErrorMessage('sending');
+            this.submitButton.textContent = sendingText;
+            
+            // Create FormData and submit
+            const formData = new FormData(this.form);
+            
+            fetch(this.form.action, {
+                method: 'POST',
+                body: formData
+            })
+            .then(async response => {
+                if (response.ok) {
+                    await this.showSuccess();
+                    this.form.reset();
+                } else {
+                    throw new Error('Network response was not ok');
+                }
+            })
+            .catch(async error => {
+                console.error('Error:', error);
+                await this.showSubmitError();
+            })
+            .finally(() => {
+                // Restore button state
+                this.submitButton.disabled = false;
+                this.submitButton.style.opacity = '';
+                this.submitButton.textContent = originalText;
+            });
+        }
+        
+        async showSuccess() {
+            const successBox = this.form.querySelector('.js-successbox');
+            
+            const successText = await this.getErrorMessage('success');
+            successBox.textContent = successText;
+            successBox.style.display = 'block';
+            successBox.style.color = '#4CAF50';
+            successBox.style.backgroundColor = '#E8F5E8';
+            successBox.style.padding = '15px';
+            successBox.style.borderRadius = '5px';
+            successBox.style.marginBottom = '20px';
+            successBox.style.border = '1px solid #4CAF50';
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successBox.style.display = 'none';
+            }, 5000);
+            
+            // Scroll to success message
+            successBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        
+        async showSubmitError() {
+            const errorText = await this.getErrorMessage('error');
+            alert(errorText);
+        }
+    }
+    
+    // Add shake animation CSS
+    const shakeStyle = document.createElement('style');
+    shakeStyle.textContent = `
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        .t-input-error {
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        .t-input.error {
+            box-shadow: 0 0 5px rgba(255, 68, 68, 0.3);
+        }
+    `;
+    document.head.appendChild(shakeStyle);
+    
+    // Initialize form validation when DOM is loaded
+    document.addEventListener('DOMContentLoaded', function() {
+        window.formValidatorInstance = new FormValidator('form971219826');
+    });
+    
+    // Update validation messages when language changes
+    window.addEventListener('languageChanged', async function(event) {
+        console.log('Language changed event received:', event.detail);
+        
+        // Get the form validator instance
+        if (window.formValidatorInstance) {
+            console.log('Form validator found, updating translations...');
+            
+            // Force reload translations for new language
+            window.formValidatorInstance.lastLoadedLanguage = null;
+            
+            // Small delay to ensure language is properly set in localStorage
+            setTimeout(async () => {
+                try {
+                    await window.formValidatorInstance.forceReloadTranslations();
+                    console.log('Translations reloaded successfully');
+                    
+                    // Re-validate all fields that currently have errors
+                    const form = document.getElementById('form971219826');
+                    if (form) {
+                        const errorInputs = form.querySelectorAll('.t-input[style*="ff4444"], textarea[style*="ff4444"]');
+                        console.log('Found error inputs:', errorInputs.length);
+                        
+                        for (const input of errorInputs) {
+                            console.log('Re-validating input:', input.name || input.type);
+                            
+                            if (input.type === 'email') {
+                                await window.formValidatorInstance.validateEmail();
+                            } else if (input.name === 'Name') {
+                                await window.formValidatorInstance.validateName();
+                            } else if (input.name === 'Textarea') {
+                                await window.formValidatorInstance.validateMessage();
+                            }
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error updating form validation:', error);
+                }
+            }, 100);
+        } else {
+            console.warn('Form validator instance not found');
+        }
+    });
 </script>
 
 </body>

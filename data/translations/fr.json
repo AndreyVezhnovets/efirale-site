@@ -40,7 +40,16 @@
     "email_placeholder": "Votre adresse e-mail",
     "name_placeholder": "Votre nom complet",
     "message_placeholder": "Vos commentaires",
-    "submit_button": "Envoyer le Message"
+    "submit_button": "Envoyer le Message",
+    "validation": {
+      "required": "Ce champ est obligatoire",
+      "email": "Veuillez saisir une adresse email valide",
+      "name": "Veuillez saisir votre nom (minimum 2 caractères)",
+      "message": "Veuillez saisir un message (minimum 10 caractères)",
+      "sending": "Envoi...",
+      "success": "Message envoyé avec succès! Nous vous contacterons bientôt.",
+      "error": "Une erreur s'est produite lors de l'envoi du message. Veuillez réessayer."
+    }
   },
   "currency": {
     "usd": {
