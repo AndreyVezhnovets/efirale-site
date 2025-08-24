@@ -74,11 +74,100 @@
 @media (max-width:980px){
   .ef2-item{flex-basis:calc((100% - var(--ef2-gap)) / 2);}
 }
+/* Планшеты */
+@media (max-width:980px) and (min-width:641px){
+  .ef2-carousel{
+    margin:25px 0 45px;
+    padding:0;
+  }
+  .ef2-track{
+    padding:12px 24px;
+    gap:20px;
+    scroll-padding-left:24px;
+    scroll-padding-right:24px;
+  }
+  .ef2-item{
+    border-radius:18px;
+    box-shadow:0 3px 16px rgba(0,0,0,0.06);
+  }
+}
+
+/* Мобильные устройства */
 @media (max-width:640px){
-  .ef2-carousel{margin:10px auto 35px;}
-  .ef2-track{padding:8px 8px;}
-  .ef2-item{flex-basis:82%;min-width:240px;}
+  .ef2-carousel{
+    margin:20px 0 40px;
+    padding:0;
+  }
+  .ef2-track{
+    padding:12px 0;
+    scroll-snap-type:x mandatory;
+    justify-content:flex-start;
+    gap:16px;
+  }
+  .ef2-item{
+    flex:0 0 calc(100vw - 40px);
+    min-width:calc(100vw - 40px);
+    max-width:calc(100vw - 40px);
+    scroll-snap-align:center;
+    margin:0 20px;
+    border-radius:20px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .ef2-item:first-child{
+    margin-left:20px;
+  }
+  .ef2-item:last-child{
+    margin-right:20px;
+  }
+  .ef2-item:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 30px rgba(0,0,0,0.12);
+  }
+  .ef2-item__body{
+    padding:18px 18px 72px;
+  }
+  .ef2-item__title{
+    font-size:18px;
+    line-height:1.3;
+    margin-bottom:8px;
+  }
+  .ef2-item__descr{
+    font-size:15px;
+    line-height:1.4;
+    margin-bottom:12px;
+  }
+  .ef2-item__btn{
+    padding:12px 20px;
+    font-size:15px;
+    border-radius:25px;
+  }
   .ef2-btn{display:none;}
+}
+
+/* Очень маленькие экраны */
+@media (max-width:400px){
+  .ef2-carousel{
+    margin:16px 0 32px;
+    padding:0;
+  }
+  .ef2-track{
+    padding:12px 0;
+    gap:12px;
+  }
+  .ef2-item{
+    flex:0 0 calc(100vw - 32px);
+    min-width:calc(100vw - 32px);
+    max-width:calc(100vw - 32px);
+    margin:0 16px;
+    border-radius:16px;
+  }
+  .ef2-item:first-child{
+    margin-left:16px;
+  }
+  .ef2-item:last-child{
+    margin-right:16px;
+  }
 }
 @media (prefers-reduced-motion:reduce){
   .ef2-btn,.ef2-item__btn{transition:none;}
