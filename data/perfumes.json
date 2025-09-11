@@ -1,10 +1,10 @@
 [
   {
     "title": {
-      "ru": "GRAPE WATER · 30 мл",
+      "ru": "ВИНОГРАДНАЯ ВОДА · 30 мл",
       "en": "GRAPE WATER · 30 ml",
-      "fr": "GRAPE WATER · 30 ml",
-      "es": "GRAPE WATER · 30 ml"
+      "fr": "EAU DE RAISIN · 30 ml",
+      "es": "AGUA DE UVA · 30 ml"
     },
     "descr": {
       "ru": "Лимонная свежесть и фруктовый аккорд в обрамлении прозрачного мускуса — выбор для смелых и свободных.",
@@ -14,7 +14,7 @@
     },
     "notes": ["белый виноград", "зелёные листья", "белые цветы", "мускус"],
     "img": "images/perfumes/grape_water.jpg",
-    "alt": "GRAPE WATER · 30 мл",
+    "alt": "ВИНОГРАДНАЯ ВОДА · 30 мл",
     "btn": {
       "ru": "Выбрать",
       "en": "Select",
@@ -22,7 +22,7 @@
       "es": "Seleccionar"
     },
     "link": "#rec971219826",
-    "url": "https://wa.me/995591801109?text=Хочу%20заказать%20GRAPE%20WATER%20(30%20мл)",
+    "url": "https://wa.me/995591801109?text=Хочу%20заказать%20ВИНОГРАДНУЮ%20ВОДУ%20(30%20мл)",
     "prices": {
       "USD": 40,
       "EUR": 37,
