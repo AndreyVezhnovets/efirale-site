@@ -1,8 +1,47 @@
 User-agent: *
 Allow: /
+Crawl-delay: 1
 Sitemap: https://efirale.com/sitemap.xml
+
+# Разрешаем индексацию важных ресурсов
+Allow: /images/
+Allow: /data/translations/
+Allow: /*.json$
+Allow: /manifest.json
+Allow: /browserconfig.xml
 
 # Запрет на индексацию служебных файлов
 Disallow: /.idea/
-Disallow: /*.js$
-Disallow: /*.css$
+Disallow: /media/*.js
+Disallow: /media/*.css
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Специальные правила для поисковых ботов
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Yandexbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: bingbot
+Allow: /
+Crawl-delay: 1
+
+# Блокировка нежелательных ботов
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Указание хоста для Яндекса
+Host: https://efirale.com
