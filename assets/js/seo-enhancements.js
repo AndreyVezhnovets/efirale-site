@@ -169,7 +169,8 @@
         });
 
         // Телефонные ссылки
-        const phoneLinks = document.querySelectorAll('a[href^="tel:"], a:contains("+995")');
+        // :contains() — это синтаксис jQuery, в querySelectorAll он бросает SyntaxError
+        const phoneLinks = [...document.querySelectorAll('a')].filter(link => link.textContent.includes('+995'));
         phoneLinks.forEach(link => {
             if (!link.getAttribute('href')?.startsWith('tel:')) {
                 const phone = link.textContent.replace(/\D/g, '');
@@ -180,7 +181,7 @@
         });
 
         // Email ссылки
-        const emailLinks = document.querySelectorAll('a:contains("@")');
+        const emailLinks = [...document.querySelectorAll('a')].filter(link => link.textContent.includes('@'));
         emailLinks.forEach(link => {
             if (!link.getAttribute('href')?.startsWith('mailto:')) {
                 const email = link.textContent.trim();
