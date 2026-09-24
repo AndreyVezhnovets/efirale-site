@@ -4,9 +4,10 @@
   },
   "nav": {
     "perfumes": "Perfumes",
-    "diffusers": "Difusores", 
+    "diffusers": "Difusores",
     "care": "Cuidado",
-    "about": "Acerca de",
+    "about": "La perfumista",
+    "bespoke": "A medida",
     "contacts": "Contactos"
   },
   "hero": {
@@ -28,8 +29,29 @@
       "description": "Una amplia gama de productos para el cuidado diario del cuerpo y mantener la frescura."
     },
     "about": {
-      "title": "Nuestra Historia",
-      "description": "Creamos fragancias que cuentan historias y transmiten emociones. Nuestra misión es combinar tradición e innovación para que todos puedan encontrar su aroma único que refleje su individualidad."
+      "title": "Alena Kovalevskaya — perfumista de EFIRALE",
+      "description": "Soy perfumista y antes fui médica. Por eso cuido la fórmula tanto como el aroma: composiciones limpias, materias primas de Grasse (Francia) y dosis precisas. En mi estudio de Batumi creo perfumes de autor y composiciones a medida — y me encanta observar cómo escucháis las notas."
+    },
+    "bespoke": {
+      "title": "Perfume a medida",
+      "description": "Un perfume creado según tus preferencias: único e irrepetible. Para ti, para regalar o para tu negocio.",
+      "step1_title": "Nos conocemos",
+      "step1_text": "Me cuentas qué aromas y notas te gustan, para quién es el perfume y qué estado de ánimo debe transmitir.",
+      "step2_title": "Prueba en el estudio",
+      "step2_text": "Ven al estudio en Batumi: tú escuchas las notas, yo observo tus reacciones y compongo el perfume para ti.",
+      "step3_title": "Tu frasco",
+      "step3_text": "Un perfume terminado con materias primas francesas de Grasse. Siempre puedes volver por un segundo frasco.",
+      "quote": "«El perfume no tiene prisa»",
+      "works_title": "Trabajos recientes",
+      "work1_title": "Para él",
+      "work1_text": "Un trabajo a medida para un hombre: un perfume creado según sus preferencias.",
+      "work2_title": "Para Right Cafe",
+      "work2_text": "Piel de naranja, mango, melocotón blanco y piña sobre una base de ron, azúcar de caña y vainilla: el aroma de un verano despreocupado.",
+      "work3_title": "El segundo frasco",
+      "work3_text": "Pimienta rosa, heliotropo y glicina empolvada, sándalo, almizcles y ámbar. Una clienta volvió por un segundo frasco.",
+      "book": "Reservar una prueba",
+      "telegram": "Escribir por Telegram",
+      "wa_message": "¡Hola! Quiero reservar una prueba y crear un perfume a medida."
     },
     "contacts": {
       "title": "Contáctanos",
