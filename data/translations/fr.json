@@ -11,8 +11,8 @@
     "contacts": "Contacts"
   },
   "hero": {
-    "title": "Trouvez Votre Parfum Idéal",
-    "description": "Parfums naturels artisanaux fabriqués à partir d'huiles essentielles et d'extraits aromatiques. Choisissez une composition selon votre humeur — des agrumes frais et herbes aux notes boisées chaudes et gourmandes. Livraison dans toute la Géorgie.",
+    "title": "Parfums naturels faits main à Batoumi",
+    "description": "Parfums d'auteur à base d'huiles essentielles et d'extraits aromatiques. Choisissez une composition selon votre humeur — des agrumes frais et herbes aux notes boisées chaudes et gourmandes. Livraison dans toute la Géorgie.",
     "button": "En Savoir Plus"
   },
   "sections": {
@@ -99,9 +99,8 @@
     "by_appointment": "Le studio reçoit sur rendez-vous"
   },
   "seo": {
-    "title": "Efirale - Parfums Naturels et Fragrances | Cosmétiques Écologiques",
-    "description": "Efirale - parfums naturels, fragrances et cosmétiques écologiques pour les soins. Découvrez le monde des parfums uniques pour la maison et le corps. Livraison dans toute la Géorgie.",
-    "keywords": "parfums naturels, fragrances, diffuseurs, cosmétiques écologiques, efirale, batoumi, acheter parfums, cosmétiques biologiques",
+    "title": "Efirale — parfums naturels faits main à Batoumi",
+    "description": "Parfums d'auteur et sur mesure par la parfumeuse Alena Kovalevskaya : parfums, diffuseurs et soins naturels. Studio à Batoumi, livraison dans toute la Géorgie.",
     "og_locale": "fr_FR"
   }
 }

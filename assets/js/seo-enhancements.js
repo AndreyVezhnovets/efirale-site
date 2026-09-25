@@ -2,116 +2,42 @@
 (function() {
     'use strict';
 
-    // Добавляем микроразметку FAQ Schema
-    function addFAQSchema() {
-        const faqData = {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "Какие ингредиенты используются в духах Efirale?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Мы используем только натуральные эфирные масла и ароматические экстракты высшего качества. Все наши духи изготавливаются вручную без синтетических добавок."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Как долго держится аромат натуральных духов?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Стойкость наших натуральных духов составляет от 4 до 8 часов в зависимости от композиции и типа кожи. Древесные и восточные ароматы держатся дольше цитрусовых."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Осуществляете ли вы доставку по Грузии?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Да, мы осуществляем доставку по всей территории Грузии. Доставка в Батуми - бесплатная при заказе от 100 лари, в другие города - от 150 лари."
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "Можно ли заказать индивидуальный аромат?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "Да, мы создаем индивидуальные ароматы на заказ. Вы можете посетить наш шоурум в Батуми для личной консультации с парфюмером."
-                    }
+    // Микроразметка товаров — из тех же data/*.json, что и карусели: цена в разметке
+    // всегда совпадает с ценой на сайте. Рейтингов нет, пока нет настоящих отзывов.
+    const PRODUCT_SOURCES = ['data/perfumes.json', 'data/diffusers.json', 'data/care.json'];
+
+    async function addProductSchema() {
+        const lists = await Promise.all(PRODUCT_SOURCES.map(url =>
+            fetch(url).then(r => r.ok ? r.json() : []).catch(() => [])
+        ));
+        const products = lists.flat()
+            .filter(item => item.title && item.prices && item.prices.GEL)
+            .map(item => ({
+                '@type': 'Product',
+                'name': item.title.ru || item.title,
+                'image': new URL(item.img, document.baseURI).href,
+                'description': (item.descr && (item.descr.ru || item.descr)) || undefined,
+                'brand': { '@type': 'Brand', 'name': 'Efirale' },
+                'offers': {
+                    '@type': 'Offer',
+                    'priceCurrency': 'GEL',
+                    'price': String(item.prices.GEL),
+                    'availability': 'https://schema.org/InStock',
+                    'seller': { '@type': 'Organization', 'name': 'Efirale' }
                 }
-            ]
-        };
+            }));
+        if (!products.length) return;
 
         const script = document.createElement('script');
         script.type = 'application/ld+json';
-        script.textContent = JSON.stringify(faqData);
-        document.head.appendChild(script);
-    }
-
-    // Добавляем микроразметку для продуктов
-    function addProductSchema() {
-        const products = [
-            {
-                "@context": "https://schema.org",
-                "@type": "Product",
-                "name": "Grape Water - Натуральные духи",
-                "image": "https://efirale.com/images/perfumes/grape_water.jpg",
-                "description": "Свежий фруктовый аромат с нотами винограда и цитрусов",
-                "brand": {
-                    "@type": "Brand",
-                    "name": "Efirale"
-                },
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "GEL",
-                    "price": "120",
-                    "availability": "https://schema.org/InStock",
-                    "seller": {
-                        "@type": "Organization",
-                        "name": "Efirale"
-                    }
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.9",
-                    "reviewCount": "42"
-                }
-            },
-            {
-                "@context": "https://schema.org",
-                "@type": "Product",
-                "name": "Clean Home Aroma - Диффузор",
-                "image": "https://efirale.com/images/diffusers/clean_home_aroma.JPEG",
-                "description": "Ароматизатор для дома с чистым свежим ароматом",
-                "brand": {
-                    "@type": "Brand",
-                    "name": "Efirale"
-                },
-                "offers": {
-                    "@type": "Offer",
-                    "priceCurrency": "GEL",
-                    "price": "85",
-                    "availability": "https://schema.org/InStock",
-                    "seller": {
-                        "@type": "Organization",
-                        "name": "Efirale"
-                    }
-                },
-                "aggregateRating": {
-                    "@type": "AggregateRating",
-                    "ratingValue": "4.8",
-                    "reviewCount": "31"
-                }
-            }
-        ];
-
-        products.forEach(product => {
-            const script = document.createElement('script');
-            script.type = 'application/ld+json';
-            script.textContent = JSON.stringify(product);
-            document.head.appendChild(script);
+        script.textContent = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            'itemListElement': products.map((product, index) => ({
+                '@type': 'ListItem', 'position': index + 1, 'item': product
+            }))
         });
+        document.head.appendChild(script);
     }
 
     // Lazy loading для изображений
@@ -228,29 +154,6 @@
         });
     }
 
-    // Добавляем мета-теги для соцсетей динамически
-    function addSocialMetaTags() {
-        const metaTags = [
-            { property: 'fb:app_id', content: '' }, // Добавьте ваш Facebook App ID
-            { property: 'article:author', content: 'https://facebook.com/efirale' },
-            { property: 'article:publisher', content: 'https://facebook.com/efirale' },
-            { name: 'pinterest-rich-pin', content: 'true' }
-        ];
-
-        metaTags.forEach(tag => {
-            if (tag.content) {
-                const meta = document.createElement('meta');
-                if (tag.property) {
-                    meta.setAttribute('property', tag.property);
-                } else {
-                    meta.setAttribute('name', tag.name);
-                }
-                meta.setAttribute('content', tag.content);
-                document.head.appendChild(meta);
-            }
-        });
-    }
-
     // Оптимизация скроллинга
     function optimizeScrolling() {
         // Плавный скролл для якорных ссылок
@@ -285,13 +188,11 @@
     }
 
     function runEnhancements() {
-        addFAQSchema();
         addProductSchema();
         initLazyLoading();
         optimizeImages();
         optimizeLinks();
         improveAccessibility();
-        addSocialMetaTags();
         optimizeScrolling();
 
         // Добавляем консольное сообщение для отладки
