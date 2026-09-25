@@ -4,9 +4,10 @@
   },
   "nav": {
     "perfumes": "Parfums",
-    "diffusers": "Diffuseurs", 
+    "diffusers": "Diffuseurs",
     "care": "Soins",
-    "about": "À propos",
+    "about": "La parfumeuse",
+    "bespoke": "Sur mesure",
     "contacts": "Contacts"
   },
   "hero": {
@@ -28,8 +29,29 @@
       "description": "Une large gamme de produits pour les soins quotidiens du corps et le maintien de la fraîcheur."
     },
     "about": {
-      "title": "Notre Histoire",
-      "description": "Nous créons des parfums qui racontent des histoires et transmettent des émotions. Notre mission est de combiner tradition et innovation pour que chacun puisse trouver son parfum unique qui reflète son individualité."
+      "title": "Alena Kovalevskaya — parfumeuse EFIRALE",
+      "description": "Je suis parfumeuse et ancienne médecin. C’est pourquoi je porte autant d’attention à la formule qu’au parfum lui-même : des compositions propres, des matières premières de Grasse (France) et des dosages précis. Dans mon studio à Batoumi, je crée des parfums d’auteur et des compositions sur mesure — et j’adore vous observer écouter les notes."
+    },
+    "bespoke": {
+      "title": "Parfum sur mesure",
+      "description": "Un parfum créé selon vos préférences — unique et inimitable. Pour vous, à offrir ou pour votre entreprise.",
+      "step1_title": "Faire connaissance",
+      "step1_text": "Vous me dites quels parfums et quelles notes vous aimez, à qui le parfum est destiné et quelle humeur il doit transmettre.",
+      "step2_title": "Test au studio",
+      "step2_text": "Venez au studio à Batoumi : vous écoutez les notes, j’observe vos réactions et je compose le parfum pour vous.",
+      "step3_title": "Votre flacon",
+      "step3_text": "Un parfum fini, élaboré avec des matières premières françaises de Grasse. Vous pouvez toujours revenir pour un deuxième flacon.",
+      "quote": "« Le parfum n’aime pas la précipitation »",
+      "works_title": "Réalisations récentes",
+      "work1_title": "Pour lui",
+      "work1_text": "Une création sur mesure pour un homme : un parfum conçu selon ses préférences.",
+      "work2_title": "Pour le Right Cafe",
+      "work2_text": "Zeste d’orange, mangue, pêche blanche et ananas sur une base de rhum, sucre de canne et vanille — le parfum d’un été insouciant.",
+      "work3_title": "Le deuxième flacon",
+      "work3_text": "Poivre rose, héliotrope et glycine poudrée, santal, muscs et ambre. Une cliente est revenue pour un deuxième flacon.",
+      "book": "Réserver un test",
+      "telegram": "Écrire sur Telegram",
+      "wa_message": "Bonjour ! Je voudrais réserver un test et créer un parfum sur mesure."
     },
     "contacts": {
       "title": "Contactez-Nous",
@@ -73,7 +95,8 @@
     "learn_more": "En Savoir Plus"
   },
   "address": {
-    "full": "Batoumi, 47a Sherif Khimshiashvili St, 5ème étage"
+    "full": "Batoumi, 47a Sherif Khimshiashvili St, 5ème étage",
+    "by_appointment": "Le studio reçoit sur rendez-vous"
   },
   "seo": {
     "title": "Efirale - Parfums Naturels et Fragrances | Cosmétiques Écologiques",

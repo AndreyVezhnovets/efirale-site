@@ -4,9 +4,10 @@
   },
   "nav": {
     "perfumes": "Perfumes",
-    "diffusers": "Diffusers", 
+    "diffusers": "Diffusers",
     "care": "Care",
-    "about": "About",
+    "about": "The perfumer",
+    "bespoke": "Bespoke",
     "contacts": "Contacts"
   },
   "hero": {
@@ -28,8 +29,29 @@
       "description": "A wide range of products for daily body care and maintaining freshness."
     },
     "about": {
-      "title": "Our Story",
-      "description": "We create fragrances that tell stories and convey emotions. Our mission is to combine tradition and innovation so that everyone can find their unique scent that reflects their individuality."
+      "title": "Alena Kovalevskaya — EFIRALE perfumer",
+      "description": "I am a perfumer and a former doctor. That is why I pay as much attention to the formula as to the scent itself: clean compositions, raw materials from Grasse (France) and carefully measured dosages. In my studio in Batumi I create signature fragrances and bespoke compositions — and I love watching you listen to the notes."
+    },
+    "bespoke": {
+      "title": "Bespoke fragrance",
+      "description": "A fragrance created around your preferences — unique and one of a kind. For yourself, as a gift or for your business.",
+      "step1_title": "Getting to know you",
+      "step1_text": "Tell me which scents and notes you love, who the perfume is for and what mood it should convey.",
+      "step2_title": "Testing in the studio",
+      "step2_text": "Come to the studio in Batumi: you listen to the notes while I watch your reactions and build the composition for you.",
+      "step3_title": "Your bottle",
+      "step3_text": "A finished fragrance made with French raw materials from Grasse. You can always come back for a second bottle.",
+      "quote": "“Perfume does not like to be rushed”",
+      "works_title": "Recent work",
+      "work1_title": "For him",
+      "work1_text": "A bespoke work for a man: a fragrance created around his preferences.",
+      "work2_title": "For Right Cafe",
+      "work2_text": "Orange zest, mango, white peach and pineapple on a base of rum, cane sugar and vanilla — the scent of a carefree summer.",
+      "work3_title": "The second bottle",
+      "work3_text": "Pink pepper, heliotrope and powdery wisteria, sandalwood, musks and amber. A client came back for a second bottle.",
+      "book": "Book a testing session",
+      "telegram": "Message on Telegram",
+      "wa_message": "Hello! I would like to book a testing session and create a bespoke fragrance."
     },
     "contacts": {
       "title": "Contact Us",
@@ -73,7 +95,8 @@
     "learn_more": "Learn More"
   },
   "address": {
-    "full": "Batumi, 47a Sherif Khimshiashvili St, 5th floor"
+    "full": "Batumi, 47a Sherif Khimshiashvili St, 5th floor",
+    "by_appointment": "The studio works by appointment"
   },
   "seo": {
     "title": "Efirale - Natural Perfumes & Fragrances | Eco-Friendly Cosmetics",

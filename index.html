@@ -44,8 +44,8 @@
     <meta name="author" content="Efirale">
     <meta name="geo.region" content="GE-AJ">
     <meta name="geo.placename" content="Batumi">
-    <meta name="geo.position" content="41.6168;41.6367">
-    <meta name="ICBM" content="41.6168, 41.6367">
+    <meta name="geo.position" content="41.6320363;41.6033051">
+    <meta name="ICBM" content="41.6320363, 41.6033051">
     <meta name="revisit-after" content="7 days">
     <meta name="rating" content="general">
     <meta name="distribution" content="global">
@@ -70,7 +70,6 @@
     <link rel="preload" href="media/fonts-tildasans.css" as="style">
     <link rel="preload" href="media/tilda-grid-3.0.min.css" as="style">
     <link rel="preload" href="media/tilda-blocks-page67374623.min.css" as="style">
-    <link rel="preload" href="/images/481004664_1837476819.jpg" as="image" type="image/jpeg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://static.tildacdn.info">
@@ -238,7 +237,7 @@
             "telephone": "+995591801109",
             "email": "alena.efirale@gmail.com",
             "sameAs": [
-                "https://instagram.com/efirale",
+                "https://www.instagram.com/efirale_aroma_care/",
                 "https://facebook.com/efirale"
             ],
             "contactPoint": {
@@ -254,28 +253,15 @@
                 "streetAddress": "ул. Шерифа Химшиашвили, 47А, 5 этаж",
                 "addressLocality": "Батуми",
                 "addressRegion": "Аджария",
-                "postalCode": "6010",
+                "postalCode": "6000",
                 "addressCountry": "GE"
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 41.6168,
-                "longitude": 41.6367
+                "latitude": 41.6320363,
+                "longitude": 41.6033051
             },
-            "openingHoursSpecification": [
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                    "opens": "10:00",
-                    "closes": "19:00"
-                },
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": "Saturday",
-                    "opens": "11:00",
-                    "closes": "18:00"
-                }
-            ]
+            "hasMap": "https://maps.google.com/?cid=496409567348935200"
         }
     </script>
     
@@ -295,19 +281,15 @@
                 "streetAddress": "ул. Шерифа Химшиашвили, 47А, 5 этаж",
                 "addressLocality": "Батуми",
                 "addressRegion": "Аджария",
-                "postalCode": "6010",
+                "postalCode": "6000",
                 "addressCountry": "GE"
             },
             "geo": {
                 "@type": "GeoCoordinates",
-                "latitude": 41.6168,
-                "longitude": 41.6367
+                "latitude": 41.6320363,
+                "longitude": 41.6033051
             },
-            "aggregateRating": {
-                "@type": "AggregateRating",
-                "ratingValue": "4.8",
-                "reviewCount": "127"
-            }
+            "hasMap": "https://maps.google.com/?cid=496409567348935200"
         }
     </script>
     
@@ -399,7 +381,7 @@
                     <div class="mobile-currency-selector">
                         <button class="mobile-currency-btn" type="button" aria-label="Выбор валюты">
                             <span class="mobile-currency-icon" id="mobile-current-currency-icon">
-                                <span class="mobile-currency-ascii">$</span>
+                                <span class="mobile-currency-ascii">₾</span>
                             </span>
                         </button>
                         <div class="mobile-currency-menu" id="mobile-currency-menu">
@@ -619,7 +601,7 @@
                     }
                     
                     // Update mobile currency selector
-                    const currentCurrency = localStorage.getItem('efirale_currency') || 'USD';
+                    const currentCurrency = localStorage.getItem('efirale_currency') || 'GEL';
                     const currencySymbols = { USD: '$', EUR: '€', RUB: '₽', GEL: '₾' };
                     const mobileCurrentCurrIcon = document.getElementById('mobile-current-currency-icon');
                     if (mobileCurrentCurrIcon && currencySymbols[currentCurrency]) {
@@ -1139,11 +1121,16 @@
                                                                                        data-menu-submenu-hook=""
                                                                                        data-menu-item-number="4"
                                                                                        data-translate="nav.about">О
-                                бренде</a></li>
+                                парфюмере</a></li>
+                            <li class="t454__list_item" style="padding:0 15px 0 0;"><a class="t-menu__link-item"
+                                                                                       href="#bespoke"
+                                                                                       data-menu-submenu-hook=""
+                                                                                       data-menu-item-number="5"
+                                                                                       data-translate="nav.bespoke">Индивидуально</a></li>
                             <li class="t454__list_item" style="padding:0 0 0 0;"><a class="t-menu__link-item"
                                                                                        href="#rec971219826"
                                                                                        data-menu-submenu-hook=""
-                                                                                       data-menu-item-number="5"
+                                                                                       data-menu-item-number="6"
                                                                                        data-translate="nav.contacts">Контакты</a>
                             </li>
                         </ul>
@@ -1197,10 +1184,10 @@
                                 <div class="currency-dropdown">
                                     <button class="currency-btn" type="button" aria-label="Выбор валюты" aria-expanded="false">
                                         <span class="currency-icon" id="current-currency-icon">
-                                            <!-- USD ASCII symbol by default -->
-                                            <span class="currency-ascii">$</span>
+                                            <!-- GEL по умолчанию: покупатели в Грузии -->
+                                            <span class="currency-ascii">₾</span>
                                         </span>
-                                        <span class="currency-code" id="current-currency-code">USD</span>
+                                        <span class="currency-code" id="current-currency-code">GEL</span>
                                         <svg class="currency-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none">
                                             <path d="M7 10l5 5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                                         </svg>
@@ -2345,7 +2332,7 @@
         </div>
     </div>
 
-    <!-- === СЕКЦИЯ О БРЕНДЕ (НЕ МЕНЯЛ) === -->
+    <!-- === СЕКЦИЯ О ПАРФЮМЕРЕ === -->
     <div id="rec971219811" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90"
          style="padding-top:135px;padding-bottom:135px;background-color:#E8F5E9; " data-animationappear="off"
          data-record-type="814" data-bg-color="#E8F5E9" bis_skin_checked="1"> <!-- t814 -->
@@ -2354,22 +2341,22 @@
                 <div class="t814__top t-col t-col_5 " itemscope="" itemtype="http://schema.org/ImageObject"
                      bis_skin_checked="1">
                     <meta itemprop="image"
-                          content="images/481004664_1837476819.jpg">
+                          content="images/perfumer/alena-studio.jpg">
                     <div class="t814__blocktext-wrapper" bis_skin_checked="1" style="height: 546px;">
                         <div class="t814__blocktext t-align_left"
                              style="background-color: rgb(255, 255, 255); left: 0px; height: 500px;"
                              bis_skin_checked="1">
                             <div class="t814__content t-valign_middle" bis_skin_checked="1">
                                 <div class="t814__box" bis_skin_checked="1">
-                                    <h2 class="t814__title t-title t-title_xs " field="title" bis_skin_checked="1" data-translate="sections.about.title">Наша
-                                        история
+                                    <h2 class="t814__title t-title t-title_xs " field="title" bis_skin_checked="1" data-translate="sections.about.title">Алёна Ковалевская — парфюмер EFIRALE
                                     </h2>
                                     <div class="t-divider t814__line" style="background-color: #C8E6C9;opacity:0.60;"
                                          bis_skin_checked="1"></div>
-                                    <div class="t814__descr t-descr t-descr_md " field="descr" bis_skin_checked="1" data-translate="sections.about.description">Мы
-                                        создаем ароматы, которые рассказывают истории и передают эмоции. Наша миссия —
-                                        объединить традиции и инновации, чтобы каждый мог найти свой уникальный запах,
-                                        отражающий его индивидуальность.
+                                    <div class="t814__descr t-descr t-descr_md " field="descr" bis_skin_checked="1" data-translate="sections.about.description">Я парфюмер, а в прошлом — врач.
+                                        Поэтому к составу отношусь так же внимательно, как к аромату: чистые формулы,
+                                        сырьё из Граса (Франция) и выверенные дозировки. В своей студии в Батуми я создаю
+                                        авторские ароматы и индивидуальные композиции — и очень люблю наблюдать, как вы
+                                        слушаете ноты.
                                     </div>
                                 </div>
                             </div>
@@ -2378,14 +2365,14 @@
                 </div>
                 <div class="t-col t-col_7 " itemscope="" itemtype="http://schema.org/ImageObject" bis_skin_checked="1">
                     <meta itemprop="image"
-                          content="images/481004664_1837476819.jpg">
+                          content="images/perfumer/alena-studio.jpg">
                     <div class="t814__blockimg-wrapper" style="padding-bottom:75.757575757576%;" bis_skin_checked="1">
                         <div class="t814__blockimg t-bgimg loaded"
-                             data-original="images/481004664_1837476819.jpg"
+                             data-original="images/perfumer/alena-studio.jpg"
                              bgimgfield="img"
-                             style="background-image: url(&quot;images/481004664_1837476819.jpg&quot;);"
-                             alt="Магазин Efirale в Батуми - натуральные духи и ароматы" 
-                             title="Efirale - шоурум натуральных духов в Батуми"
+                             style="background-image: url(&quot;images/perfumer/alena-studio.jpg&quot;);"
+                             alt="Парфюмер Алёна Ковалевская у полки с сырьём в студии EFIRALE в Батуми"
+                             title="Студия EFIRALE в Батуми"
                              loading="lazy"
                              bis_skin_checked="1"></div>
                     </div>
@@ -2403,7 +2390,144 @@
     <style> #rec971219811 .t814__title { color: #000000; }
     #rec971219811 .t814__descr { color: #000000; }</style>
     <style> #rec971219811 .t814__blocktext { border-radius: 15px; }
-    #rec971219811 .t814__blockimg { border-radius: 15px; }</style>
+    #rec971219811 .t814__blockimg { border-radius: 15px; background-position: center 15%; }</style>
+
+    <!-- === СЕКЦИЯ ИНДИВИДУАЛЬНЫЙ АРОМАТ === -->
+    <section id="bespoke" class="ef-bespoke" aria-labelledby="bespoke-title">
+        <div class="ef-bespoke__inner">
+            <h2 id="bespoke-title" class="t-title t-title_xs ef-bespoke__title" data-translate="sections.bespoke.title">
+                Индивидуальный аромат
+            </h2>
+            <p class="t-descr t-descr_xl ef-bespoke__descr" data-translate="sections.bespoke.description">
+                Аромат, созданный по вашим предпочтениям, — уникальный и неповторимый. Для себя, в подарок или для
+                вашего бизнеса.
+            </p>
+
+            <ol class="ef-bespoke__steps">
+                <li class="ef-bespoke__step">
+                    <span class="ef-bespoke__num" aria-hidden="true">1</span>
+                    <h3 class="t-name ef-bespoke__step-title" data-translate="sections.bespoke.step1_title">Знакомство</h3>
+                    <p class="t-text ef-bespoke__step-text" data-translate="sections.bespoke.step1_text">
+                        Рассказываете, какие ароматы и ноты вам близки, для кого парфюм и какое настроение он должен
+                        передавать.
+                    </p>
+                </li>
+                <li class="ef-bespoke__step">
+                    <span class="ef-bespoke__num" aria-hidden="true">2</span>
+                    <h3 class="t-name ef-bespoke__step-title" data-translate="sections.bespoke.step2_title">Тестирование в студии</h3>
+                    <p class="t-text ef-bespoke__step-text" data-translate="sections.bespoke.step2_text">
+                        Приходите в студию в Батуми: вы слушаете ноты, а я наблюдаю за реакцией и собираю композицию
+                        под вас.
+                    </p>
+                </li>
+                <li class="ef-bespoke__step">
+                    <span class="ef-bespoke__num" aria-hidden="true">3</span>
+                    <h3 class="t-name ef-bespoke__step-title" data-translate="sections.bespoke.step3_title">Ваш флакон</h3>
+                    <p class="t-text ef-bespoke__step-text" data-translate="sections.bespoke.step3_text">
+                        Готовый аромат на французском сырье из Граса. За ним можно вернуться — и получить второй флакон.
+                    </p>
+                </li>
+            </ol>
+
+            <p class="ef-bespoke__quote" data-translate="sections.bespoke.quote">«Парфюм не любит спешки»</p>
+
+            <div class="ef-bespoke__actions">
+                <a class="ef-bespoke__btn ef-bespoke__btn--primary" id="bespoke-whatsapp"
+                   href="https://wa.me/995591801109?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%B7%D0%B0%D0%BF%D0%B8%D1%81%D0%B0%D1%82%D1%8C%D1%81%D1%8F%20%D0%BD%D0%B0%20%D1%82%D0%B5%D1%81%D1%82%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%B8%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C%20%D0%B8%D0%BD%D0%B4%D0%B8%D0%B2%D0%B8%D0%B4%D1%83%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9%20%D0%B0%D1%80%D0%BE%D0%BC%D0%B0%D1%82."
+                   target="_blank" rel="noopener" data-translate="sections.bespoke.book">Записаться на тестирование</a>
+                <a class="ef-bespoke__btn" href="https://t.me/Efirale" target="_blank" rel="noopener"
+                   data-translate="sections.bespoke.telegram">Написать в Telegram</a>
+            </div>
+
+            <h3 class="t-name ef-bespoke__works-title" data-translate="sections.bespoke.works_title">Недавние работы</h3>
+            <div class="ef-bespoke__works">
+                <figure class="ef-bespoke__work">
+                    <img src="images/bespoke/signature-for-him.jpg" loading="lazy" width="900" height="1200"
+                         alt="Флакон индивидуального аромата EFIRALE для мужчины">
+                    <figcaption>
+                        <strong data-translate="sections.bespoke.work1_title">Для него</strong>
+                        <span data-translate="sections.bespoke.work1_text">Индивидуальная работа для мужчины: аромат, созданный по его предпочтениям.</span>
+                    </figcaption>
+                </figure>
+                <figure class="ef-bespoke__work">
+                    <img src="images/bespoke/rightcafe-diffusers.jpg" loading="lazy" width="900" height="1200"
+                         alt="Диффузоры EFIRALE с индивидуальным ароматом для кафе Right Cafe">
+                    <figcaption>
+                        <strong data-translate="sections.bespoke.work2_title">Для кафе Right Cafe</strong>
+                        <span data-translate="sections.bespoke.work2_text">Цедра апельсина, манго, белый персик и ананас на базе рома, тростникового сахара и ванили — аромат беззаботного лета.</span>
+                    </figcaption>
+                </figure>
+                <figure class="ef-bespoke__work">
+                    <img src="images/bespoke/second-bottle.jpg" loading="lazy" width="900" height="1200"
+                         alt="Второй флакон индивидуального аромата EFIRALE в подарочной коробке">
+                    <figcaption>
+                        <strong data-translate="sections.bespoke.work3_title">Второй флакон</strong>
+                        <span data-translate="sections.bespoke.work3_text">Розовый перец, гелиотроп и пудровая глициния, сандал, мускусы и амбра. Вернулись за вторым флаконом после индивидуальной работы.</span>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .ef-bespoke { padding: 135px 20px; background: #ffffff; color: #000000; }
+        .ef-bespoke__inner { max-width: 1140px; margin: 0 auto; }
+        .ef-bespoke__title { text-align: center; margin: 0 0 40px; }
+        .ef-bespoke__descr { text-align: center; max-width: 620px; margin: 0 auto 60px; }
+        .ef-bespoke__steps { list-style: none; padding: 0; margin: 0 0 48px; display: grid;
+            grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .ef-bespoke__step { background: #E8F5E9; border-radius: 15px; padding: 28px 24px; }
+        .ef-bespoke__num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%;
+            background: #C8E6C9; font-family: 'TildaSans', Arial, sans-serif; font-weight: 700; margin-bottom: 16px; }
+        .ef-bespoke__step-title { margin: 0 0 8px; font-size: 20px; font-weight: 600; }
+        .ef-bespoke__step-text { margin: 0; font-size: 16px; line-height: 1.5; opacity: .85; }
+        .ef-bespoke__quote { text-align: center; font-family: 'TildaSans', Arial, sans-serif; font-size: 24px;
+            font-style: italic; margin: 0 0 32px; }
+        .ef-bespoke__actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 90px; }
+        .ef-bespoke__btn { display: inline-block; padding: 14px 28px; border-radius: 30px; border: 1px solid #C8E6C9;
+            color: #000000; text-decoration: none; font-family: 'TildaSans', Arial, sans-serif; font-weight: 600;
+            font-size: 16px; transition: transform .15s ease, box-shadow .15s ease; }
+        .ef-bespoke__btn--primary { background: #C8E6C9; }
+        .ef-bespoke__btn:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(0,0,0,.10); }
+        .ef-bespoke__btn:focus-visible { outline: 3px solid #C8E6C9; outline-offset: 2px; }
+        .ef-bespoke__works-title { text-align: center; margin: 0 0 32px; font-size: 24px; font-weight: 600; }
+        .ef-bespoke__works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+        .ef-bespoke__work { margin: 0; background: #E8F5E9; border-radius: 15px; overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+        .ef-bespoke__work img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+        .ef-bespoke__work figcaption { padding: 16px 18px 20px; font-family: 'TildaSans', Arial, sans-serif;
+            font-size: 15px; line-height: 1.45; }
+        .ef-bespoke__work strong { display: block; font-size: 17px; margin-bottom: 6px; }
+        @media (max-width: 960px) {
+            .ef-bespoke { padding: 90px 16px; }
+            .ef-bespoke__title { margin-bottom: 20px; }
+            .ef-bespoke__descr { margin-bottom: 40px; }
+            .ef-bespoke__steps, .ef-bespoke__works { grid-template-columns: 1fr; }
+            .ef-bespoke__actions { margin-bottom: 60px; }
+        }
+        @media (prefers-reduced-motion: reduce) { .ef-bespoke__btn { transition: none; } }
+    </style>
+
+    <script>
+        // Текст сообщения в WhatsApp — на языке сайта (переводы сами меняют только текст кнопки)
+        (function () {
+            var button = document.getElementById('bespoke-whatsapp');
+            if (!button) return;
+            function update(language) {
+                fetch('data/translations/' + language + '.json')
+                    .then(function (r) { return r.ok ? r.json() : null; })
+                    .then(function (t) {
+                        var text = t && t.sections && t.sections.bespoke && t.sections.bespoke.wa_message;
+                        if (text) button.href = 'https://wa.me/995591801109?text=' + encodeURIComponent(text);
+                    })
+                    .catch(function () {});
+            }
+            window.addEventListener('languageChanged', function (e) { update(e.detail.language); });
+            var saved = null;
+            try { saved = localStorage.getItem('efirale_language'); } catch (e) {}
+            if (saved && saved !== 'ru') update(saved);
+        })();
+    </script>
 
     <!-- === СЕКЦИЯ КОНТАКТЫ (НЕ МЕНЯЛ) === -->
     <div id="rec971219826" class="r t-rec t-rec_pt_135 t-rec_pt-res-480_90 t-rec_pb_135 t-rec_pb-res-480_90"
@@ -2437,11 +2561,11 @@
                     <div class="t718__contentbox" style="height: 100%;" bis_skin_checked="1">
                         <div class="t718__contentwrapper" bis_skin_checked="1">
                             <div class="t718__contacts t-text t-descr_xxxl" field="text" bis_skin_checked="1">
-                                +995591801109<br>alena.efirale@gmail.com
+                                <a href="tel:+995591801109" style="color:inherit;">+995 591 80 11 09</a><br><a href="mailto:alena.efirale@gmail.com" style="color:inherit;">alena.efirale@gmail.com</a>
                             </div>
                             <div class="t718__address t-text t-text_sm" field="text2" bis_skin_checked="1"><a
-                                    href="https://www.google.com/maps/?q=41.63175900501371,41.603733103867185"
-                                    target="_blank" style="color:inherit;text-decoration:underline;" data-translate="address.full">Батуми, ул. Шерифа Химшиашвили, 47А, 5 этаж</a>
+                                    href="https://maps.google.com/?cid=496409567348935200"
+                                    target="_blank" style="color:inherit;text-decoration:underline;" data-translate="address.full">Батуми, ул. Шерифа Химшиашвили, 47А, 5 этаж</a><br><span data-translate="address.by_appointment">Студия работает по записи</span>
                             </div>
                             <div class="t-sociallinks" bis_skin_checked="1">
                                 <ul role="list" class="t-sociallinks__wrapper" aria-label="Соц. сети">
@@ -2454,7 +2578,7 @@
                                                   fill="#C8E6C9"/>
                                         </svg>
                                     </a></li>&nbsp;<li class="t-sociallinks__item t-sociallinks__item_telegram"><a
-                                        href="https://t.me/AlenaV1324" target="_blank" rel="nofollow"
+                                        href="https://t.me/Efirale" target="_blank" rel="nofollow"
                                         aria-label="telegram" style="width: 30px; height: 30px;">
                                     <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px"
                                          viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2473,7 +2597,7 @@
                                         </svg>
                                     </a></li><!-- /new soclinks -->
                                     <li class="t-sociallinks__item t-sociallinks__item_instagram"><a
-                                            href="https://www.instagram.com/stories/efirale_ecocraft/" target="_blank"
+                                            href="https://www.instagram.com/efirale_aroma_care/" target="_blank"
                                             rel="nofollow" aria-label="instagram" style="width: 30px; height: 30px;">
                                         <svg class="t-sociallinks__svg" role="presentation" width="30px" height="30px"
                                              viewBox="0 0 1000 1000" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2587,6 +2711,16 @@
                 </div>
             </div>
         </div>
+        <div class="ef-map">
+            <iframe src="https://maps.google.com/maps?cid=496409567348935200&amp;output=embed" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+                    title="Студия EFIRALE на карте Батуми"></iframe>
+        </div>
+        <style>
+            .ef-map { max-width: 1140px; margin: 60px auto 0; padding: 0 20px; box-sizing: border-box; }
+            .ef-map iframe { display: block; width: 100%; height: 380px; border: 0; border-radius: 15px; }
+            @media (max-width: 640px) { .ef-map { margin-top: 40px; padding: 0 16px; } .ef-map iframe { height: 300px; } }
+        </style>
         <style> #rec971219826 .t718__contacts { color: #000000; }
         #rec971219826 .t718__address { color: #000000; }</style>
     </div>
@@ -2626,7 +2760,7 @@
         }
     };
     
-    let currentCurrency = localStorage.getItem('efirale_currency') || 'USD';
+    let currentCurrency = localStorage.getItem('efirale_currency') || 'GEL';
     
     // DOM elements
     let currencyBtn, currencyMenu, currentCurrencyIcon, currentCurrencyCode;

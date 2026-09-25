@@ -47,9 +47,22 @@
     return fallback;
   };
 
+  // Заказ идёт через WhatsApp: сообщение сразу содержит название товара на языке сайта
+  const WHATSAPP_PHONE = '995591801109';
+  const ORDER_MESSAGE = {
+    ru: 'Здравствуйте! Меня интересует: ',
+    en: 'Hello! I am interested in: ',
+    fr: 'Bonjour ! Je suis intéressé(e) par : ',
+    es: '¡Hola! Me interesa: '
+  };
+
+  function orderHref(title, language){
+    const text = (ORDER_MESSAGE[language] || ORDER_MESSAGE.ru) + title;
+    return `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(text)}`;
+  }
+
   function buildCard(raw){
     const img   = get(raw, ['img','image'], '');
-    const link  = get(raw, ['link'], '#rec971219826'); // по умолчанию ведём в форму контактов на странице
     
     // Get current language
     const currentLanguage = (window.EfiraleTranslation && window.EfiraleTranslation.getCurrent()) || 'ru';
@@ -70,11 +83,11 @@
     let priceHtml = '<span></span>';
     if (prices && typeof prices === 'object') {
       // Multi-currency support
-      const currentCurrency = (window.EfiraleCurrency && window.EfiraleCurrency.getCurrent()) || 'USD';
+      const currentCurrency = (window.EfiraleCurrency && window.EfiraleCurrency.getCurrent()) || 'GEL';
       const currentPrice = prices[currentCurrency];
       if (currentPrice !== undefined) {
         const currencyConfig = window.EfiraleCurrency && window.EfiraleCurrency.getConfig(currentCurrency);
-        const symbol = currencyConfig ? currencyConfig.symbol : '$';
+        const symbol = currencyConfig ? currencyConfig.symbol : '₾';
         priceHtml = `<span class="ef2-item__price" data-prices='${JSON.stringify(prices).replace(/'/g, '&apos;')}'>${symbol}${currentPrice}</span>`;
       }
     } else if (legacyPrice) {
@@ -91,7 +104,7 @@
         ${descr ? `<p class="ef2-item__descr" data-raw-descr='${JSON.stringify(raw.descr || raw.description || descr).replace(/'/g, '&apos;')}'>${escapeHtml(descr)}</p>` : ''}
         <div class="ef2-item__meta">
           ${priceHtml}
-          <a class="ef2-item__btn" href="${link}" data-raw-btn='${JSON.stringify(raw.btn || btn).replace(/'/g, '&apos;')}'>${escapeHtml(btn)}</a>
+          <a class="ef2-item__btn" href="${orderHref(title, currentLanguage)}" target="_blank" rel="noopener" data-raw-btn='${JSON.stringify(raw.btn || btn).replace(/'/g, '&apos;')}'>${escapeHtml(btn)}</a>
         </div>
       </div>
     `;
@@ -331,6 +344,10 @@
         const localizedBtn = getLocalizedText({ btn: rawBtn }, 'btn', language);
         if (localizedBtn) {
           element.textContent = localizedBtn;
+        }
+        const title = element.closest('.ef2-item')?.querySelector('.ef2-item__title')?.textContent.trim();
+        if (title) {
+          element.href = orderHref(title, language);
         }
       } catch (e) {
         console.warn('Failed to update carousel button:', e);

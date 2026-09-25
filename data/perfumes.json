@@ -1,5 +1,33 @@
 [
   {
+    "img": "images/perfumes/sardinia-mandarins.jpg",
+    "title": {
+      "ru": "МАНДАРИНЫ САРДИНИИ · 30 мл",
+      "en": "SARDINIAN MANDARINS · 30 ml",
+      "fr": "MANDARINES DE SARDAIGNE · 30 ml",
+      "es": "MANDARINAS DE CERDEÑA · 30 ml"
+    },
+    "descr": {
+      "ru": "Тёплый мандарин, чистый воздух и море где-то рядом. Сырьё — Грас, Франция. Также 10 мл и 50 мл.",
+      "en": "Warm mandarin, clean air and the sea somewhere nearby. Raw materials from Grasse, France. Also in 10 ml and 50 ml.",
+      "fr": "Mandarine chaleureuse, air pur et la mer tout près. Matières premières de Grasse, France. Aussi en 10 ml et 50 ml.",
+      "es": "Mandarina cálida, aire limpio y el mar muy cerca. Materias primas de Grasse, Francia. También en 10 ml y 50 ml."
+    },
+    "btn": {
+      "ru": "Выбрать",
+      "en": "Select",
+      "fr": "Sélectionner",
+      "es": "Seleccionar"
+    },
+    "alt": "Флакон EFIRALE «Мандарины Сардинии» среди мандаринов на берегу моря",
+    "prices": {
+      "USD": 50,
+      "EUR": 46,
+      "RUB": 4500,
+      "GEL": 135
+    }
+  },
+  {
     "title": {
       "ru": "ВИНОГРАДНАЯ ВОДА · 30 мл",
       "en": "GRAPE WATER · 30 ml",
@@ -12,7 +40,12 @@
       "fr": "Fraîcheur de citron et accord fruité encadrés par un musc transparent — le choix des audacieux et libres.",
       "es": "Frescura de limón y acorde frutal enmarcados por almizcle transparente — la elección para los audaces y libres."
     },
-    "notes": ["белый виноград", "зелёные листья", "белые цветы", "мускус"],
+    "notes": [
+      "белый виноград",
+      "зелёные листья",
+      "белые цветы",
+      "мускус"
+    ],
     "img": "images/perfumes/grape_water.jpg",
     "alt": "ВИНОГРАДНАЯ ВОДА · 30 мл",
     "btn": {
@@ -21,8 +54,6 @@
       "fr": "Sélectionner",
       "es": "Seleccionar"
     },
-    "link": "#rec971219826",
-    "url": "https://wa.me/995591801109?text=Хочу%20заказать%20ВИНОГРАДНУЮ%20ВОДУ%20(30%20мл)",
     "prices": {
       "USD": 40,
       "EUR": 37,
@@ -50,7 +81,6 @@
       "fr": "Sélectionner",
       "es": "Seleccionar"
     },
-    "link": "#rec971219826",
     "alt": "Флакон EFIRALE 995 в руке на фоне жёлтой ткани",
     "prices": {
       "USD": 45,
@@ -79,7 +109,6 @@
       "fr": "Sélectionner",
       "es": "Seleccionar"
     },
-    "link": "#rec971219826",
     "alt": "Портрет с флаконом EFIRALE в тёплом закатном свете",
     "prices": {
       "USD": 42,
@@ -108,7 +137,6 @@
       "fr": "Voir la Collection",
       "es": "Ver Colección"
     },
-    "link": "#rec971219826",
     "alt": "Квадратные флаконы EFIRALE рядом с кофейными зёрнами",
     "prices": {
       "USD": 55,
@@ -137,7 +165,6 @@
       "fr": "Commander",
       "es": "Pedir"
     },
-    "link": "#rec971219826",
     "alt": "Мини-спрей EFIRALE на фоне упаковки и тканевого мешочка",
     "prices": {
       "USD": 15,
